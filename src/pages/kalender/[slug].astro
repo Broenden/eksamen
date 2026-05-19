@@ -1,0 +1,58 @@
+---
+//@ts-nocheck
+import PageLayout from "../../Layouts/PageLayout.astro";
+import Footer from "../../components/Footer.astro";
+
+export async function getStaticPaths() {
+  const options = {
+    headers: {
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqaXJ2aW5icWFkam55amdmYXplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkwMDExMTIsImV4cCI6MjA5NDU3NzExMn0.7zVbvnasSjz7OidFqNKZ2ahvwutN0cPIuVfSlZBV6ks",
+    },
+  };
+  const url = "https://bjirvinbqadjnyjgfaze.supabase.co/rest/v1/kalender";
+  const response = await fetch(url, options);
+  const data = await response.json();
+
+  return data.map((post) => {
+    return {
+      params: { slug: post.slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+---
+
+<PageLayout heading={post.name}>
+  <article class="grid_1-1 single-view">
+    <h2>{post.name}</h2>
+    <div>
+      <p>{post.shortDescription}</p>
+      <h4>Dato: {post.date}</h4>
+      <h4>Tid: {post.timeStart} - {post.timeEnd}</h4>
+      <h4>Pris: {post.price}</h4>
+      <h4>Sted: {post.place}</h4>
+      <button>Hent billetter</button>
+    </div>
+    <div>
+      <img src={post.img} alt={post.name} />
+    </div>
+    <div>
+      <p>{post.description}</p>
+    </div>
+  </article>
+</PageLayout>
+
+<style>
+  .grid_1-1 {
+    background-color: var(--lys-laks);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 4rem;
+  }
+  .single-view {
+    background-color: rgb(246, 246, 147);
+  }
+</style>

@@ -1,0 +1,28 @@
+---
+//@ts-nocheck
+import Card from "./Card.astro";
+const { kalender } = Astro.props;
+---
+
+<div class="grid_1-1-1 calenderlist">
+  {kalender.map((events) => <Card personData={events} />)}
+</div>
+
+<style>
+  @media (max-width: 900px) {
+    .grid_1-1-1 {
+      display: grid;
+      grid-template-columns: 1fr;
+      padding: 1rem;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .grid_1-1-1 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 400px));
+      gap: 1rem;
+      justify-content: center;
+    }
+  }
+</style>

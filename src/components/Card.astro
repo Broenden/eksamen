@@ -1,0 +1,41 @@
+---
+//@ts-nocheck
+const { personData } = Astro.props;
+const { slug } = Astro.params;
+---
+
+<article class="card">
+  <h4>{personData.name}</h4>
+  <p>{personData.shortDescription}</p>
+  <div>
+    <h4>
+      {personData.date}
+      {personData.timeStart}
+      {personData.time}
+      {personData.timeEnd}
+    </h4>
+  </div>
+  <img src={personData.img} alt={personData.name} />
+  <div>
+    <a href={`/kalender/${personData.slug}`}> <button>Læs mere →</button></a>
+  </div>
+</article>
+
+<style>
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .card {
+    background-color: rgb(205, 130, 130);
+    padding: 2rem;
+    margin: 1rem;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    gap: 0;
+  }
+</style>
