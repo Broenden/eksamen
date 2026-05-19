@@ -1,0 +1,21 @@
+:root {
+  /* colors */
+  --bg-color: rgb(255, 253, 250);
+  --footer-color: rgb(0, 36, 55);
+
+  --text-color-dark: rgb(0, 36, 55);
+  --text-color-light: rgb(255, 253, 250);
+
+  --cta-color-dark: rgb(0, 36, 55);
+  --cta-color-light: rgb(255, 253, 250);
+  --cta-color-brown: rgb(211, 129, 115);
+  --cta-color-pink: rgb(245, 229, 231);
+  --cta-color-grey: rgb(110, 110, 110);
+  --cta-color-yellow: rgb(255, 252, 218);
+
+  --card-color-blue: rgb(0, 36, 55);
+  --card-color-grey: rgb(110, 110, 110);
+  --card-color-pink: rgb(245, 229, 231);
+  --card-color-brown: rgb(211, 129, 115);
+  --card-color-yellow: rgb(255, 252, 218);
+}
