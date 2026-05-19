@@ -1,20 +1,21 @@
 ---
 //@ts-nocheck
+
 const { personData } = Astro.props;
 const { slug } = Astro.params;
+import "../styles/custom.css";
 ---
 
-<article class="card">
+<article class={`card ${personData.type2}`}>
+  <div><button class={`type ${personData.type}`}>{personData.type}</button><button class={`price ${personData.price}`}>{personData.price}</button></div>
   <h4>{personData.name}</h4>
-  <p>{personData.shortDescription}</p>
-  <div>
-    <h4>
-      {personData.date}
-      {personData.timeStart}
-      {personData.time}
-      {personData.timeEnd}
-    </h4>
-  </div>
+  <p class="p-small">{personData.shortDescription}</p>
+  <p class="event-info">
+    <span>{personData.date}</span>
+    <span>
+      {personData.timeStart} - {personData.time}{personData.timeEnd}
+    </span>
+  </p>
   <img src={personData.img} alt={personData.name} />
   <div>
     <a href={`/kalender/${personData.slug}`}> <button>Læs mere →</button></a>
@@ -30,12 +31,30 @@ const { slug } = Astro.params;
     margin: 0 auto;
   }
   .card {
-    background-color: rgb(205, 130, 130);
     padding: 2rem;
     margin: 1rem;
     display: grid;
     grid-template-rows: subgrid;
-    grid-row: span 3;
+    grid-row: span 6;
     gap: 0;
+  }
+  .card.rav {
+    background-color: var(--card-color-grey);
+  }
+
+  .card.bibliotek {
+    background-color: var(--card-color-yellow);
+  }
+
+  .card.bønnen {
+    background-color: var(--card-color-pink);
+  }
+  p {
+    padding: 0.5rem 0;
+    font-size: 18px;
+  }
+  .event-info {
+    display: flex;
+    justify-content: space-between;
   }
 </style>
