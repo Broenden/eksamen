@@ -1,0 +1,33 @@
+---
+import CtaDefault from "../components/CtaDefault.astro";
+---
+
+<nav>
+  <ul>
+    <li><a href="#">Rav</a></li>
+    <li><a href="#">B&B</a></li>
+    <li><a href="#">Bibliotek</a></li>
+    <li><a href="#">Praktisk</a></li>
+    <li><a href="#">Om os</a></li>
+    <li><CtaDefault href="#" tekst="Kalender" /></li>
+  </ul>
+</nav>
+
+<style>
+  li {
+    list-style-type: none;
+  }
+
+  /* desktop */
+  @media screen and (width > 800px) {
+    ul {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+  }
+
+  /* mobil */
+  @media screen and (width < 800px) {
+  }
+</style>
