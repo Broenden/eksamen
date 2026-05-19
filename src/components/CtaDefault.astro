@@ -1,0 +1,68 @@
+---
+const { tekst, href, variant = "darkblue", target = "_self" } = Astro.props;
+---
+
+<a href={href} class={`btn btn--${variant} `} target={target}>
+  {tekst}
+</a>
+
+<style>
+  .btn {
+    border: 1px solid;
+    border-radius: var(--border-radius);
+    padding: 0.3rem 0.5rem;
+    transition: 0.4s allow-discrete;
+
+    &::after {
+      content: "\27F6";
+      font-size: var(--h3-size);
+    }
+  }
+
+  .btn--darkblue {
+    border-color: var(--cta-color-dark);
+
+    &:hover {
+      background-color: var(--cta-color-dark);
+      color: var(--text-color-light);
+    }
+  }
+
+  .btn--light {
+    border-color: var(--cta-color-light);
+    color: var(--text-color-light);
+
+    &:hover {
+      background-color: var(--cta-color-light);
+      color: var(--text-color-dark);
+    }
+  }
+</style>
+<!-- 
+<style>
+  .btn {
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .btn:hover {
+    opacity: 0.8;
+  }
+
+  .btn--blaa {
+    background-color: #32487a;
+    color: white;
+  }
+
+  .btn--lys {
+    background-color: #bcceff;
+    color: #ffffff;
+  }
+
+  .btn--orange {
+    background-color: #ffc26b;
+    color: #ffffff;
+  }
+</style> -->

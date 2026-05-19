@@ -8,6 +8,10 @@ a {
   text-decoration: none;
 }
 
+body {
+  background-color: var(--bg-color);
+}
+
 img {
   max-width: 100%;
 }
@@ -39,6 +43,7 @@ h4 {
   font-family: var(--font-family-montserrat);
   font-size: var(--h4-size);
   color: var(--text-color-dark);
+  font-weight: var(--font-weight-medium);
 }
 
 p {
@@ -48,9 +53,10 @@ p {
   font-weight: var(--font-weight-light);
 }
 
-.p-small {
+.p-small,
+a {
   font-family: var(--font-family-montserrat);
   font-size: var(--p-small-size);
   color: var(--text-color-dark);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-light);
 }
