@@ -1,13 +1,56 @@
-@import url("https://din-server.dk");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-.montserrat {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
 }
-.beatrice {
-  font-family: "Beatrice Deck Trial", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* textstyles */
+h1 {
+  font-family: var(--font-family-beatrice);
+  font-size: var(--h1-size);
+  color: var(--text-color-dark);
+  font-weight: var(--font-weight-light);
+  font-style: var(--font-style-normal);
+}
+
+h2 {
+  font-family: var(--font-family-beatrice);
+  font-size: var(--h2-size);
+  color: var(--text-color-dark);
+  font-weight: var(--font-weight-light);
+}
+
+h3 {
+  font-family: var(--font-family-beatrice);
+  font-size: var(--h3-size);
+  color: var(--text-color-dark);
+  font-weight: var(--font-weight-light);
+}
+
+h4 {
+  font-family: var(--font-family-montserrat);
+  font-size: var(--h4-size);
+  color: var(--text-color-dark);
+}
+
+p {
+  font-family: var(--font-family-montserrat);
+  font-size: var(--p-size);
+  color: var(--text-color-dark);
+  font-weight: var(--font-weight-light);
+}
+
+.p-small {
+  font-family: var(--font-family-montserrat);
+  font-size: var(--p-small-size);
+  color: var(--text-color-dark);
+  font-weight: var(--font-weight-medium);
 }
