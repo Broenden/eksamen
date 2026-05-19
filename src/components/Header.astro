@@ -1,0 +1,54 @@
+---
+import "../styles/custom.css";
+import Logo from "../components/Logo.astro";
+import Navigation from "../components/Navigation.astro";
+const { variant = "dark" } = Astro.props;
+---
+
+<header>
+  <div class="logo-header">
+    <div>
+      <Logo />
+    </div>
+    <a href="#">
+      <p>
+        KULTURHUSET
+        <span>BRØNDEN</span>
+      </p>
+    </a>
+  </div>
+  <Navigation variant="dark" />
+</header>
+
+<style>
+  p,
+  a {
+    font-family: var(--font-family-beatrice);
+    color: inherit;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem;
+  }
+
+  .logo-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .logo-header div {
+    min-width: 50px;
+  }
+
+  .logo-header span {
+    display: block;
+  }
+
+  .header--dark {
+    color: blue;
+  }
+</style>

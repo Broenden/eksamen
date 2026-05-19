@@ -1,6 +1,7 @@
 ---
 import "../styles/custom.css";
 import "../styles/general.css";
+import Header from "../components/Header.astro";
 const { heading } = Astro.props;
 
 //@ts-nocheck
@@ -17,9 +18,12 @@ const { heading } = Astro.props;
     <meta name="description" content="" />
     <title>Brønden</title>
   </head>
-</html><body>
-  <slot />
-  <main></main>
+</html>
+<body>
+  <Header />
+  <main>
+    <slot />
+  </main>
 </body>
 
 <style></style>

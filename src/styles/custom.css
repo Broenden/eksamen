@@ -48,4 +48,14 @@
   /* dropshadows */
   --shadow-light: -2px 3px 3px 0 rgb(0, 0, 0, 0.25);
   --shadow-medium: -5px 3px 4px 0 rgb(0, 0, 0, 0.25);
+
+  /* colors */
+  --darkblue: rgb(0, 36, 55);
+  --green: rgb(53, 225, 55);
+  --red: rgb(190, 70, 88);
+  --lightblue: rgb(166, 205, 244);
+  --yellow: rgb(255, 252, 218);
+  --grey: rgb(110, 110, 110);
+  --pink: rgb(245, 229, 231);
+  --brown: rgb(211, 129, 115);
 }
