@@ -39,4 +39,12 @@
   --font-weight-medium: 600;
   --font-weight-bold: 800;
   --font-weight-thick: 1000;
+
+  /* borderradius */
+  --border-radius: 12px;
+  --border-radius-filters: 60px;
+
+  /* dropshadows */
+  --shadow-light: -2px 3px 3px 0 rgb(0, 0, 0, 0.25);
+  --shadow-medium: -5px 3px 4px 0 rgb(0, 0, 0, 0.25);
 }
