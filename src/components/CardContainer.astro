@@ -4,10 +4,76 @@ import Card from "./Card.astro";
 const { kalender } = Astro.props;
 ---
 
-<div class="grid_1-1-1 calenderlist">
-  {kalender.map((events) => <Card personData={events} />)}
+<div class="filters">
+  <button class="all">Alle</button>
+  <button class="rav">Rav</button>
+  <button class="bibliotek">Bibliotek</button>
+  <button class="boennen">Bønnen</button>
 </div>
+<div class="grid_1-1-1 calenderlist">
+  {
+    kalender.map((events) => (
+      <div class={`event-wrapper ${events.type2}`}>
+        <Card personData={events} />
+      </div>
+    ))
+  }
+</div>
+<script>
+  "use strict";
+  function url_param(key, value) {
+    const url = new URL(window.location);
+    if (value === "all") {
+      url.searchParams.delete(key);
+    } else {
+      url.searchParams.set(key, value);
+    }
 
+    window.history.pushState({}, "", url);
+  }
+  function url_param_get(key) {
+    const url = new URL(window.location);
+    return url.searchParams.get(key);
+  }
+
+  document.querySelector(".all").addEventListener("click", () => {
+    url_param("type2", "all");
+    filterType();
+  });
+
+  document.querySelector(".rav").addEventListener("click", () => {
+    url_param("type2", "rav");
+    filterType();
+  });
+
+  document.querySelector(".bibliotek").addEventListener("click", () => {
+    url_param("type2", "bibliotek");
+    filterType();
+  });
+
+  document.querySelector(".boennen").addEventListener("click", () => {
+    url_param("type2", "bønnen");
+    filterType();
+  });
+
+  function filterType() {
+    const type2 = url_param_get("type2");
+
+    const cards = document.querySelectorAll(".event-wrapper");
+
+    cards.forEach((card) => {
+      if (!type2 || type2 === "all") {
+        card.style.display = "block";
+      } else if (card.classList.contains(type2)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
+
+  filterType();
+</script>
 <style>
   @media (max-width: 900px) {
     .grid_1-1-1 {
