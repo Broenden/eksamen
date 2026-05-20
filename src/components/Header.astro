@@ -8,7 +8,9 @@ const { variant = "dark" } = Astro.props;
 <header>
   <div class="logo-header">
     <div>
-      <Logo />
+      <a href="#">
+        <Logo />
+      </a>
     </div>
     <a href="#">
       <p>
@@ -17,14 +19,13 @@ const { variant = "dark" } = Astro.props;
       </p>
     </a>
   </div>
-  <Navigation variant="dark" />
+  <Navigation />
 </header>
 
 <style>
-  p,
-  a {
+  p {
     font-family: var(--font-family-beatrice);
-    color: inherit;
+    font-size: 24px;
   }
 
   header {
@@ -46,9 +47,5 @@ const { variant = "dark" } = Astro.props;
 
   .logo-header span {
     display: block;
-  }
-
-  .header--dark {
-    color: blue;
   }
 </style>
