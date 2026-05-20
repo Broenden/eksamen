@@ -1,0 +1,110 @@
+---
+import Logo from "./Logo.astro";
+import { Image } from "astro:assets";
+import fb from "../assets/fb.svg";
+import insta from "../assets/insta.svg";
+import tiktok from "../assets/tiktok.svg";
+---
+
+<footer>
+  <section>
+    <div class="contact">
+      <h4>Kontakt</h4>
+      <a href="https://maps.app.goo.gl/FS3GZpcGo3gP41qD8" target="_blank">Brøndby Strand Centrum 60<span>2660 Brøndby Strand</span></a>
+      <p>CVR: 65113015</p>
+      <div class="contact-info">
+        <p>+45 43 28 20 00</p>
+        <p>bronden@brondby.dk</p>
+        <div class="socials">
+          <a href="#"><Image src={insta} alt="Instagram" /></a>
+          <a href="#"><Image src={fb} alt="Facebook" /></a>
+          <a href="#"><Image src={tiktok} alt="Tiktok" /></a>
+        </div>
+      </div>
+    </div>
+    <div class="open">
+      <h4>Åbningstider</h4>
+      <p>Man-Torsdag: 8-20</p>
+      <p>Fredag: 10-18</p>
+      <p>Lørdag: 10-17</p>
+      <p>Søndag: Lukket</p>
+      <p>(Åbningstider kan variere)</p>
+    </div>
+    <div class="links-1">
+      <h4>Brønden tilbyder</h4>
+      <a href="#">RAV</a>
+      <a href="#">B&B</a>
+      <a href="#">Bibliotek</a>
+      <a href="#">Arrangementer</a>
+    </div>
+    <div class="links-2">
+      <h4>Relevante links</h4>
+      <a href="#">Om os</a>
+      <a href="#">Praktisk</a>
+    </div>
+  </section>
+  <section class="logo-container">
+    <Logo variant="yellow" />
+  </section>
+</footer>
+
+<style>
+  footer {
+    background-color: var(--footer-color);
+    padding: 2rem 2rem 0 2rem;
+  }
+
+  section:first-child {
+    display: grid;
+    gap: 2rem;
+    position: relative;
+    top: 60px;
+  }
+
+  p,
+  h4,
+  a {
+    color: var(--text-color-light);
+  }
+
+  p {
+    font-size: var(--p-small-size);
+    margin-bottom: 0.5ch;
+  }
+
+  h4 {
+    margin-bottom: 1ch;
+  }
+
+  span {
+    display: block;
+  }
+
+  .logo-container {
+    max-width: 300px;
+    min-width: 300px;
+    position: relative;
+    transform: rotate(-90deg);
+    bottom: -93px;
+    place-self: center;
+  }
+
+  .contact-info {
+    margin-top: 3ch;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .links-1 a,
+  .links-2 a {
+    display: block;
+    margin-bottom: 0.5ch;
+  }
+
+  /* desktop */
+  @media screen and (width > 650px) {
+    section:first-child {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>
