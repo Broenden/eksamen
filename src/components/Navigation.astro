@@ -3,19 +3,53 @@ import CtaDefault from "../components/CtaDefault.astro";
 ---
 
 <nav>
-  <ul>
-    <li><a href="#">Rav</a></li>
+  <ul class="menu">
+    <li><a href="#">RAV</a></li>
     <li><a href="#">B&B</a></li>
     <li><a href="#">Bibliotek</a></li>
     <li><a href="#">Praktisk</a></li>
     <li><a href="#">Om os</a></li>
-    <li><CtaDefault href="#" tekst="Kalender" /></li>
+    <li class="cta-desktop"><CtaDefault href="#" tekst="Kalender" /></li>
+    <li class="cta-burger"><a href="#">Kalender</a></li>
   </ul>
+  <button class="burger">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </button>
 </nav>
 
 <style>
+  a {
+    font-family: var(--font-family-beatrice);
+    color: var(--text-color-dark);
+
+    &:hover {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.194);
+    }
+  }
+
   li {
     list-style-type: none;
+  }
+
+  .burger {
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .burger .line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color-dark);
+    margin-bottom: 5px;
+    transition: 0.2s linear;
+  }
+  .burger,
+  .cta-burger {
+    display: none;
   }
 
   /* desktop */
@@ -25,9 +59,99 @@ import CtaDefault from "../components/CtaDefault.astro";
       gap: 1rem;
       align-items: center;
     }
+
+    li {
+      position: relative;
+    }
+
+    li::after {
+      content: "";
+      position: absolute;
+      right: -0.5rem;
+      height: 100%;
+      width: 1.5px;
+      background-color: var(--text-color-dark);
+    }
+
+    li:nth-child(5)::after,
+    li:nth-child(6)::after {
+      display: none;
+    }
   }
 
   /* mobil */
   @media screen and (width < 800px) {
+    .menu {
+      display: none;
+    }
+    .burger {
+      display: block;
+      background-color: transparent;
+      border: 0;
+    }
+    .burger.active .line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+      transition: 0.2s linear;
+    }
+
+    .burger.active .line:nth-child(2) {
+      opacity: 0;
+      transition: 0.15s linear;
+    }
+
+    .burger.active .line:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+      transition: 0.2s linear;
+    }
+
+    nav.active .menu {
+      display: block;
+      position: absolute;
+      top: 120px;
+      left: 0;
+      width: 100%;
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+    }
+
+    nav.active .menu li {
+      margin: 10px 20px;
+      background-color: var(--cta-color-dark);
+      border-radius: var(--border-radius);
+      padding: 1rem;
+      box-shadow: var(--shadow-medium);
+    }
+
+    nav.active .menu li:last-child {
+      background-color: var(--cta-color-light);
+    }
+
+    nav.active .menu a {
+      font-size: 24px;
+      color: var(--text-color-light);
+    }
+
+    nav.active .menu .cta-burger {
+      display: block;
+    }
+
+    nav.active .menu .cta-burger a {
+      color: var(--text-color-dark);
+    }
+
+    nav.active .menu .cta-desktop {
+      display: none;
+    }
   }
 </style>
+
+<script>
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector("nav");
+
+  burger.addEventListener("click", burgerClick);
+  function burgerClick() {
+    burger.classList.toggle("active");
+    nav.classList.toggle("active");
+  }
+</script>
