@@ -1,24 +1,25 @@
 ---
 //@ts-nocheck
 
-const { personData } = Astro.props;
+const { event } = Astro.props;
 const { slug } = Astro.params;
 import "../styles/custom.css";
+import CtaDefault from "../components/CtaDefault.astro";
 ---
 
-<article class={`card ${personData.type2}`}>
-  <div><button class={`type ${personData.type}`}>{personData.type}</button><button class={`price ${personData.price}`}>{personData.price}</button></div>
-  <h4>{personData.name}</h4>
-  <p class="p-small">{personData.shortDescription}</p>
+<article class={`card ${event.type2}`}>
+  <div><button class={`type ${event.type}`}>{event.type}</button><button class={`price ${event.price}`}>{event.price}</button></div>
+  <h4>{event.name}</h4>
+  <p class="p-small">{event.shortDescription}</p>
   <p class="event-info">
-    <span>{personData.date}</span>
+    <span>{event.date}</span>
     <span>
-      {personData.timeStart} - {personData.time}{personData.timeEnd}
+      {event.timeStart} - {event.timeEnd}
     </span>
   </p>
-  <img src={personData.img} alt={personData.name} />
-  <div>
-    <a href={`/kalender/${personData.slug}`}> <button>Læs mere →</button></a>
+  <img src={event.img} alt={event.name} />
+  <div class="cta">
+    <CtaDefault href={`/kalender/${event.slug}`} tekst="Læs mere" />
   </div>
 </article>
 
@@ -60,5 +61,18 @@ import "../styles/custom.css";
   .event-info {
     display: flex;
     justify-content: space-between;
+  }
+  .cta {
+    margin-top: 1rem;
+    justify-self: center;
+  }
+  button {
+    background-color: var(--cta-color-light);
+    color: var(--text-color-dark);
+    border: solid 1px var(--cta-color-dark);
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 </style>
