@@ -1,9 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import fb from "../assets/fb.svg";
 import CtaDefault from "./CtaDefault.astro";
 // const { placeholder, buttonText, text, title } = Astro.props;
-const { img, imgTekst, tekst, titel, ctaTekst, href, order, variant = "no-button" } = Astro.props;
+const { img, imgTekst, tekst, tekst2, titel, ctaTekst, href, order, variant = "no-button" } = Astro.props;
 ---
 
 <section class={`big-card big-card--${variant} `}>
@@ -11,6 +10,7 @@ const { img, imgTekst, tekst, titel, ctaTekst, href, order, variant = "no-button
   <div class="content">
     <h2>{titel}</h2>
     <p>{tekst}</p>
+    <p>{tekst2}</p>
     <div class="cta">
       <CtaDefault href={href} tekst={ctaTekst} />
     </div>
@@ -37,6 +37,12 @@ const { img, imgTekst, tekst, titel, ctaTekst, href, order, variant = "no-button
   }
   .big-card--button .cta {
     display: block;
+  }
+
+  .big-card--button-pink {
+    background-color: var(--card-color-pink);
+    padding: 2rem 0;
+    margin-bottom: 0;
   }
 
   @media (width>=800px) {

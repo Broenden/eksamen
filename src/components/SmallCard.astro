@@ -1,21 +1,76 @@
 ---
 import CtaDefault from "./CtaDefault.astro";
-const { tekst, ctaTekst, href } = Astro.props;
+const { tekst, ctaTekst, href, ctaVariant, variant = "brown" } = Astro.props;
 ---
 
-<section class="content">
+<section class={`small-card small-card--${variant} `}>
   <p>{tekst}</p>
-  <CtaDefault href={href} tekst={ctaTekst} />
+  <div class="cta">
+    <CtaDefault href={href} tekst={ctaTekst} variant={ctaVariant} />
+  </div>
 </section>
 
 <style>
-  .content {
-    background-color: var(--card-color-brown);
-    max-width: 20vw;
+  .small-card {
+    max-width: 22vw;
     padding: 1rem;
+    position: relative;
   }
 
   p {
     margin-bottom: 1ch;
+  }
+
+  /* brun */
+  .small-card--brown {
+    background-color: var(--card-color-brown);
+  }
+
+  .small-card--brown p {
+    color: var(--text-color-light);
+  }
+
+  /* pink */
+  .small-card--pink {
+    background-color: var(--card-color-pink);
+  }
+
+  .small-card--pink-nobutton {
+    background-color: var(--card-color-pink);
+  }
+
+  .small-card--pink-nobutton .cta {
+    display: none;
+  }
+
+  /* grå */
+  .small-card--grey {
+    color: var(--card-color-grey);
+  }
+
+  .small-card--grey p {
+    color: var(--text-color-light);
+  }
+
+  /* gul */
+  .small-card--yellow {
+    background-color: var(--card-color-yellow);
+  }
+
+  .small-card--yellow-nobutton {
+    background-color: var(--card-color-yellow);
+  }
+
+  .small-card--yellow-nobutton .cta {
+    display: none;
+  }
+
+  /* blå */
+  .small-card--darkblue {
+    color: var(--card-color-blue);
+  }
+
+  .small-card--darkblue p {
+    color: var(--text-color-light);
   }
 </style>
