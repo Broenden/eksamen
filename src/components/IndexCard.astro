@@ -3,45 +3,66 @@
 const { personData } = Astro.props;
 const { slug } = Astro.params;
 import "../styles/custom.css";
+import CtaDefault from "../components/CtaDefault.astro";
 ---
 
-<article>
-  <div class="card grid_1-1-1">
-    <img src={personData.img} alt={personData.name} />
+<article class="card-container">
+  <div class="card">
+    <img class="card-image" src={personData.img} alt={personData.name} />
     <h4>{personData.name}</h4>
     <p>{personData.shortDescription}</p>
     <div>
-      <a href={`/kalender/${personData.slug}`}> <button>Læs mere →</button></a>
+      <CtaDefault href={`/kalender/${personData.slug}`} variant="light" tekst="Læs mere" />
     </div>
   </div>
-
-  <style>
-    @media (min-width: 900px) {
-      .grid_1-1-1 {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 400px));
-        gap: 1rem;
-        justify-content: center;
-      }
-
-      img {
-        display: block;
-        max-width: 100%;
-        height: auto;
-        justify-content: center;
-        margin: 0 auto;
-      }
-
-      h4 {
-        padding: 0.5rem 0;
-        font-size: 24px;
-        color: var(--text-color-light);
-      }
-      p {
-        padding: 0.5rem 0;
-        font-size: 18px;
-        color: var(--text-color-light);
-      }
-    }
-  </style>
 </article>
+
+<style>
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+  }
+  .card {
+    width: 383px;
+    height: auto;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background-color: var(--card-color-blue);
+    text-align: center;
+    padding: 0 0 3rem 0;
+  }
+
+  .card-image {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  h4 {
+    padding: 0.5rem 2rem;
+    font-family: var(--font-family-beatrice);
+    font-size: var(--h4-size);
+    color: var(--text-color-light);
+  }
+
+  p {
+    padding: 0.5rem 2rem 1rem;
+    font-family: var(--font-family-montserrat);
+    font-size: var(--p-small-size);
+    font-weight: var(--font-weight-light);
+    color: var(--text-color-light);
+  }
+
+  @media (width>=800px) {
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
