@@ -1,0 +1,21 @@
+---
+import CtaDefault from "./CtaDefault.astro";
+const { tekst, ctaTekst, href } = Astro.props;
+---
+
+<section class="content">
+  <p>{tekst}</p>
+  <CtaDefault href={href} tekst={ctaTekst} />
+</section>
+
+<style>
+  .content {
+    background-color: var(--card-color-brown);
+    max-width: 20vw;
+    padding: 1rem;
+  }
+
+  p {
+    margin-bottom: 1ch;
+  }
+</style>
