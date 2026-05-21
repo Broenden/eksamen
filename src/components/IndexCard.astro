@@ -1,0 +1,47 @@
+---
+//@ts-nocheck
+const { personData } = Astro.props;
+const { slug } = Astro.params;
+import "../styles/custom.css";
+---
+
+<article>
+  <div class="card grid_1-1-1">
+    <img src={personData.img} alt={personData.name} />
+    <h4>{personData.name}</h4>
+    <p>{personData.shortDescription}</p>
+    <div>
+      <a href={`/kalender/${personData.slug}`}> <button>Læs mere →</button></a>
+    </div>
+  </div>
+
+  <style>
+    @media (min-width: 900px) {
+      .grid_1-1-1 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 400px));
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        justify-content: center;
+        margin: 0 auto;
+      }
+
+      h4 {
+        padding: 0.5rem 0;
+        font-size: 24px;
+        color: var(--text-color-light);
+      }
+      p {
+        padding: 0.5rem 0;
+        font-size: 18px;
+        color: var(--text-color-light);
+      }
+    }
+  </style>
+</article>
