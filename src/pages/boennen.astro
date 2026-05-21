@@ -1,6 +1,58 @@
 ---
+import BigCard from "../components/BigCard.astro";
 import PageLayout from "../Layouts/PageLayout.astro";
+import { Image } from "astro:assets";
+import boennen1 from "../assets/boennen/boennen1.svg";
+import boennen2 from "../assets/boennen/boennen2.svg";
+import boennen3 from "../assets/boennen/boennen3.svg";
+import boennen4 from "../assets/boennen/boennen4.png";
+import boennen5 from "../assets/boennen/boennen5.png";
+import boennen6 from "../assets/boennen/boennen6.svg";
+import boennen7 from "../assets/boennen/boennen7.svg";
 //@ts-nocheck
 ---
 
-<PageLayout heading="Bibliotek" />
+<PageLayout heading="Bibliotek">
+  <BigCard
+    img={boennen1}
+    imgTekst="B&B café"
+    titel="Brønden & Bønnen"
+    tekst="Brønden & Bønnen er en café åbnet i samarbejde med Meyers Madhus, og er til for at danne ramme om gode smagsoplevelser, fællesskab og hverdagsmøder mellem Brøndbys borgere. Vi holder åbent mandag til lørdag kl. 10-14"
+  />
+  <!-- mangler ugens menu -->
+  <BigCard
+    order="-1"
+    img={boennen3}
+    imgTekst="Iskaffe"
+    titel="Ugens menu"
+    tekst="Ugens suppe
+Kartoffelporresuppe med ramsløgpesto, croutoner og brød.
+
+Ugens focaccia
+Cremede hvide bønner med citron, stegt broccoli, parmesan og ruccola
+
+Ugens salat
+Grønkål, perlebyg, æble, nødder, feta og vinagrette"
+  />
+  <BigCard
+    variant="button"
+    img={boennen4}
+    imgTekst="Det længste bord"
+    titel="Det længste bord"
+    tekst="Det Længste Bord skal gøre det mere normalt at spise sund, grøn og lækker mad i Brøndby Kommune. Hvis vi skal spise mere sundt og grønt, skal det også smage godt, gerne på en overraskende måde, og det skal helst også være billigt, sjovt og nemt i en travl hverdag – og så skal det mætte. Du kan læse mere om projektet Det Længste Bord på Brøndby Kommunes hjemmeside."
+    ctaTekst="Læs mere"
+    href="https://www.brondby.dk/borger/klima-og-miljo/klima-pa-dagsordenen/spis-gront-det-laengste-bord"
+  />
+  <Image src={boennen5} alt="Fællesspisning" />
+  <BigCard
+    variant="button"
+    order="-1"
+    img={boennen6}
+    imgTekst="Kagesmagsprøver"
+    titel="Fællesspisning"
+    tekst="ag din familie, din nabo eller din bedste ven under armen og kom til fællesspisning, når vi inviterer til fællesspisning i Kulturhuset Brønden. Brønden & Bønnen serverer en lækker grøn menu, og ofte vil der være et arrangement i Brønden før eller efter maden, som man kan deltage i, hvis man har lyst."
+    ctaTekst="Tilmeld dig"
+    href="https://oplev.brondby.dk/kalender#MarkType=broendby-faellesspisning"
+  />
+  <Image src={boennen7} alt="Madkursus" />
+</PageLayout>
