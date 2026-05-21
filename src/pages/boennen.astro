@@ -22,6 +22,7 @@ import Logo from "../components/Logo.astro";
     tekst="Brønden & Bønnen er en café åbnet i samarbejde med Meyers Madhus, og er til for at danne ramme om gode smagsoplevelser, fællesskab og hverdagsmøder mellem Brøndbys borgere."
     tekst2="Vi holder åbent mandag til lørdag kl. 10-14"
   />
+
   <!-- speciel sektion -->
   <article class="menu">
     <section class="menu-container">
@@ -41,13 +42,13 @@ import Logo from "../components/Logo.astro";
         <p>Grønkål, perlebyg, æble, nødder, feta og vinagrette.</p>
       </div>
     </section>
-
     <section class="menu-img">
       <Image src={boennen3} alt="Iskaffe" />
+      <SmallCard tekst="Følg med på vores Instagram for at få opdateringer på nyheder og ugens menu." ctaTekst="Følg os" ctaVariant="light" />
     </section>
   </article>
-
   <!-- speciel sektion slut -->
+
   <Image src={boennen5} alt="Fællesspisning" class="img" />
   <BigCard
     variant="button"
@@ -134,6 +135,11 @@ import Logo from "../components/Logo.astro";
 
   .menu-container {
     display: grid;
+  }
+
+  .menu-img :global(section) {
+    top: -100px;
+    right: -200px;
   }
 
   @media (width>=800px) {
