@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import fb from "../assets/fb.svg";
 import CtaDefault from "./CtaDefault.astro";
 // const { placeholder, buttonText, text, title } = Astro.props;
-const { img, imgTekst, tekst, titel, ctaTekst, href, variant = "no-button" } = Astro.props;
+const { img, imgTekst, tekst, titel, ctaTekst, href, order, variant = "no-button" } = Astro.props;
 ---
 
 <section class={`big-card big-card--${variant} `}>
@@ -17,8 +17,9 @@ const { img, imgTekst, tekst, titel, ctaTekst, href, variant = "no-button" } = A
   </div>
 </section>
 
-<style>
+<style define:vars={{ order }}>
   .content {
+    order: var(--order);
     display: flex;
     justify-content: center;
     flex-direction: column;
