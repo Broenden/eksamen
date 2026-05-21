@@ -1,6 +1,8 @@
 ---
 import BigCard from "../components/BigCard.astro";
 import PageLayout from "../Layouts/PageLayout.astro";
+import CtaDefault from "../components/CtaDefault.astro";
+import SmallCard from "../components/SmallCard.astro";
 import { Image } from "astro:assets";
 import boennen1 from "../assets/boennen/boennen1.svg";
 import boennen2 from "../assets/boennen/boennen2.svg";
@@ -9,6 +11,7 @@ import boennen4 from "../assets/boennen/boennen4.png";
 import boennen5 from "../assets/boennen/boennen5.png";
 import boennen6 from "../assets/boennen/boennen6.svg";
 import boennen7 from "../assets/boennen/boennen7.svg";
+import Logo from "../components/Logo.astro";
 //@ts-nocheck
 ---
 
@@ -19,21 +22,33 @@ import boennen7 from "../assets/boennen/boennen7.svg";
     titel="Brønden & Bønnen"
     tekst="Brønden & Bønnen er en café åbnet i samarbejde med Meyers Madhus, og er til for at danne ramme om gode smagsoplevelser, fællesskab og hverdagsmøder mellem Brøndbys borgere. Vi holder åbent mandag til lørdag kl. 10-14"
   />
-  <!-- mangler ugens menu -->
-  <BigCard
-    order="-1"
-    img={boennen3}
-    imgTekst="Iskaffe"
-    titel="Ugens menu"
-    tekst="Ugens suppe
-Kartoffelporresuppe med ramsløgpesto, croutoner og brød.
+  <!-- speciel sektion -->
+  <article class="menu">
+    <section class="menu-container">
+      <div class="logo-container">
+        <Logo variant="red" />
+      </div>
+      <div class="menu-content">
+        <div class="menu-title">
+          <h3>Ugens menu</h3>
+          <p class="p-small">Uge 19 + 20</p>
+        </div>
+        <p class="p-bold">Ugens suppe</p>
+        <p>Kartoffelporresuppe med ramsløgpesto, croutoner og brød.</p>
+        <p class="p-bold">Ugens focaccia</p>
+        <p>Cremede hvide bønner med citron, stegt broccoli, parmesan og ruccola.</p>
+        <p class="p-bold">Ugens salat</p>
+        <p>Grønkål, perlebyg, æble, nødder, feta og vinagrette.</p>
+      </div>
+    </section>
 
-Ugens focaccia
-Cremede hvide bønner med citron, stegt broccoli, parmesan og ruccola
+    <section class="menu-img">
+      <Image src={boennen3} alt="Iskaffe" />
+    </section>
+  </article>
 
-Ugens salat
-Grønkål, perlebyg, æble, nødder, feta og vinagrette"
-  />
+  <!-- speciel sektion slut -->
+
   <BigCard
     variant="button"
     img={boennen4}
@@ -43,16 +58,98 @@ Grønkål, perlebyg, æble, nødder, feta og vinagrette"
     ctaTekst="Læs mere"
     href="https://www.brondby.dk/borger/klima-og-miljo/klima-pa-dagsordenen/spis-gront-det-laengste-bord"
   />
-  <Image src={boennen5} alt="Fællesspisning" />
+  <Image src={boennen5} alt="Fællesspisning" class="img" />
   <BigCard
     variant="button"
     order="-1"
     img={boennen6}
     imgTekst="Kagesmagsprøver"
     titel="Fællesspisning"
-    tekst="ag din familie, din nabo eller din bedste ven under armen og kom til fællesspisning, når vi inviterer til fællesspisning i Kulturhuset Brønden. Brønden & Bønnen serverer en lækker grøn menu, og ofte vil der være et arrangement i Brønden før eller efter maden, som man kan deltage i, hvis man har lyst."
+    tekst="Tag din familie, din nabo eller din bedste ven under armen og kom til fællesspisning, når vi inviterer til fællesspisning i Kulturhuset Brønden. Brønden & Bønnen serverer en lækker grøn menu, og ofte vil der være et arrangement i Brønden før eller efter maden, som man kan deltage i, hvis man har lyst."
     ctaTekst="Tilmeld dig"
     href="https://oplev.brondby.dk/kalender#MarkType=broendby-faellesspisning"
   />
-  <Image src={boennen7} alt="Madkursus" />
+  <div>
+    <BigCard
+      variant="button"
+      img={boennen7}
+      imgTekst="Madkursus"
+      titel="Brøndby Madskole"
+      tekst="Hos Det Længste Bord tilbydes der også madlavningskurser gennem Brøndby Madskole. Det kræver blot, at du har en interesse i at lære mere om, hvordan du laver lækker grøn mad, og hvordan du kan dele denne interesse med andre. Lyder det som noget for dig? Så læs mere om de forskellige kurser gennem linket nedenfor."
+      ctaTekst="Tilmeld dig"
+      href="https://brøndby.detlængstebord.dk/wp-content/uploads/2026/02/Broendby-Madskole-Foraar-2026.pdf"
+    />
+  </div>
 </PageLayout>
+
+<style>
+  .img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* layout af ugens menu */
+  .menu {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 1rem 3rem;
+    place-items: center;
+  }
+
+  .menu-content {
+    background-color: var(--card-color-pink);
+    padding: 3rem;
+    grid-area: 1/1;
+  }
+
+  .p-bold {
+    font-weight: var(--font-weight-medium);
+    margin-top: 2ch;
+  }
+
+  .p-small {
+    font-size: var(--p-small-size);
+  }
+
+  .menu-title {
+    text-align: center;
+  }
+
+  .logo-container {
+    max-width: 300px;
+    min-width: 300px;
+    position: relative;
+    transform: rotate(126deg);
+    bottom: -180px;
+    left: -20px;
+    place-self: left;
+    grid-area: 1/1;
+    z-index: -1;
+  }
+
+  .menu-container {
+    display: grid;
+  }
+
+  @media (width>=800px) {
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 5rem;
+    }
+
+    .menu-content {
+      margin-left: 4rem;
+    }
+  }
+
+  @media (width<800px) {
+    .menu {
+      gap: 12rem;
+    }
+  }
+</style>
