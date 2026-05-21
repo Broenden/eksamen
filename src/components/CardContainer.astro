@@ -4,14 +4,17 @@ import Card from "./Card.astro";
 const { kalender } = Astro.props;
 ---
 
-<div class="filters">
-  <button class="all">Alle</button>
-  <button class="rav">Rav</button>
-  <button class="bibliotek">Bibliotek</button>
-  <button class="boennen">Bønnen</button>
-</div>
+<article>
+  <h2>Kalender</h2>
+  <div class="filters">
+    <button class="all">Alle</button>
+    <button class="rav">Rav</button>
+    <button class="bibliotek">Bibliotek</button>
+    <button class="bønnen">Bønnen</button>
+  </div>
+</article>
 <div class="grid_1-1-1 calenderlist">
-  {kalender.map((events) => <Card personData={events} />)}
+  {kalender.map((events) => <Card event={events} />)}
 </div>
 
 <script>
@@ -46,7 +49,7 @@ const { kalender } = Astro.props;
     filterType();
   });
 
-  document.querySelector(".boennen").addEventListener("click", () => {
+  document.querySelector(".bønnen").addEventListener("click", () => {
     url_param("type2", "bønnen");
     filterType();
   });
@@ -55,6 +58,14 @@ const { kalender } = Astro.props;
     const type2 = url_param_get("type2");
 
     const cards = document.querySelectorAll(".card");
+
+    const activeButton = document.querySelector("." + CSS.escape(type2));
+
+    document.querySelectorAll(".filters button").forEach((b) => b.classList.remove("active"));
+
+    if (activeButton) {
+      activeButton.classList.add("active");
+    }
 
     cards.forEach((card) => {
       if (!type2 || type2 === "all") {
@@ -70,14 +81,53 @@ const { kalender } = Astro.props;
   filterType();
 </script>
 <style>
-  @media (max-width: 900px) {
-    .grid_1-1-1 {
-      display: grid;
-      grid-template-columns: 1fr;
-      padding: 1rem;
-    }
+  article {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    row-gap: 1rem;
+  }
+  button {
+    background-color: var(--cta-color-light);
+    color: var(--text-color-dark);
+    border: solid 1px var(--cta-color-dark);
+    padding: 0.3rem 0.5rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }
+  .all:hover {
+    background-color: var(--darkblue);
+    box-shadow: var(--shadow-medium);
+    color: var(--text-color-light);
+  }
+  .all.active {
+    background-color: var(--darkblue);
+    color: var(--text-color-light);
   }
 
+  .rav:hover {
+    background-color: var(--green);
+    box-shadow: var(--shadow-medium);
+  }
+  .rav.active {
+    background-color: var(--green);
+  }
+  .bibliotek:hover {
+    background-color: var(--yellow);
+    box-shadow: var(--shadow-medium);
+  }
+  .bibliotek.active {
+    background-color: var(--yellow);
+  }
+  .bønnen:hover {
+    background-color: var(--pink);
+    box-shadow: var(--shadow-medium);
+  }
+  .bønnen.active {
+    background-color: var(--pink);
+  }
   @media (min-width: 900px) {
     .grid_1-1-1 {
       display: grid;
