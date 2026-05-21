@@ -1,7 +1,14 @@
 ---
-import { Image } from "astro:assets";
-import Rav from "../assets/Rav.svg";
 //@ts-nocheck
+import { Image } from "astro:assets";
+import IndexCard from "../components/IndexCard.astro";
+import PageLayout from "../Layouts/PageLayout.astro";
+const response = await fetch(`https://bjirvinbqadjnyjgfaze.supabase.co/rest/v1/kalender?limit=3`, {
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqaXJ2aW5icWFkam55amdmYXplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkwMDExMTIsImV4cCI6MjA5NDU3NzExMn0.7zVbvnasSjz7OidFqNKZ2ahvwutN0cPIuVfSlZBV6ks",
+  },
+});
+const data = await response.json();
 ---
 
 <html lang="en">
@@ -14,9 +21,11 @@ import Rav from "../assets/Rav.svg";
     <title>Astro</title>
   </head>
   <body>
-    <h1>Astro</h1>
-    dette er en test
-    <a href="/kalender">kalender</a>
-    <Image src={Rav} alt="Rav" />
+    <PageLayout heading="Index">
+      <h1>Astro</h1>
+      dette er en test
+      <a href="/kalender">kalender</a>
+      {data.map((person) => <IndexCard personData={person} />)}
+    </PageLayout>
   </body>
 </html>
