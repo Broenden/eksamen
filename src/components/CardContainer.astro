@@ -11,14 +11,9 @@ const { kalender } = Astro.props;
   <button class="boennen">Bønnen</button>
 </div>
 <div class="grid_1-1-1 calenderlist">
-  {
-    kalender.map((events) => (
-      <div class={`event-wrapper ${events.type2}`}>
-        <Card personData={events} />
-      </div>
-    ))
-  }
+  {kalender.map((events) => <Card personData={events} />)}
 </div>
+
 <script>
   "use strict";
   function url_param(key, value) {
@@ -59,13 +54,13 @@ const { kalender } = Astro.props;
   function filterType() {
     const type2 = url_param_get("type2");
 
-    const cards = document.querySelectorAll(".event-wrapper");
+    const cards = document.querySelectorAll(".card");
 
     cards.forEach((card) => {
       if (!type2 || type2 === "all") {
-        card.style.display = "block";
+        card.style.display = "grid";
       } else if (card.classList.contains(type2)) {
-        card.style.display = "block";
+        card.style.display = "grid";
       } else {
         card.style.display = "none";
       }
@@ -88,6 +83,7 @@ const { kalender } = Astro.props;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(400px, 400px));
       gap: 1rem;
+      grid-template-rows: repeat(6, auto);
       justify-content: center;
     }
   }
