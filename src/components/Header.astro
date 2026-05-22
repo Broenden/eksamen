@@ -2,24 +2,30 @@
 import "../styles/custom.css";
 import Logo from "../components/Logo.astro";
 import Navigation from "../components/Navigation.astro";
-const { variant = "dark" } = Astro.props;
+import { Image } from "astro:assets";
+const { img, imgTekst, video } = Astro.props;
 ---
 
 <header>
-  <div class="logo-header">
-    <div>
+  <section class="hero">
+    {video ? <video src={video} autoplay muted loop playsinline /> : <Image src={img} alt={imgTekst} />}
+  </section>
+  <section class="header">
+    <div class="logo-header">
+      <div>
+        <a href="/">
+          <Logo />
+        </a>
+      </div>
       <a href="/">
-        <Logo />
+        <p>
+          KULTURHUSET
+          <span>BRØNDEN</span>
+        </p>
       </a>
     </div>
-    <a href="/">
-      <p>
-        KULTURHUSET
-        <span>BRØNDEN</span>
-      </p>
-    </a>
-  </div>
-  <Navigation />
+    <Navigation />
+  </section>
 </header>
 
 <style>
@@ -28,11 +34,12 @@ const { variant = "dark" } = Astro.props;
     font-size: 24px;
   }
 
-  header {
+  .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 2rem;
+    align-self: start;
   }
 
   .logo-header {
@@ -47,5 +54,23 @@ const { variant = "dark" } = Astro.props;
 
   .logo-header span {
     display: block;
+  }
+
+  /* hero */
+  header {
+    display: grid;
+  }
+  .hero {
+    grid-area: 1/1;
+  }
+
+  .header {
+    grid-area: 1/1;
+  }
+
+  .hero :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 </style>
