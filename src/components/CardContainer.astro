@@ -6,21 +6,47 @@ const { kalender } = Astro.props;
 
 <article>
   <h2>Kalender</h2>
-  <div class="filters">
-    <button class="all">Alle</button>
-    <button class="rav">Rav</button>
-    <button class="bibliotek">Bibliotek</button>
-    <button class="bønnen">Bønnen</button>
+  <div class="filter-wrapper">
+    <div class="filters">
+      <button class="all">Alle</button>
+      <button class="rav">Rav</button>
+      <button class="bibliotek">Bibliotek</button>
+      <button class="bønnen">Bønnen</button>
+    </div>
+
+    <nav data-filter-nav>
+      <button class="dropDown">Dato</button>
+      <ul class="filter-buttons">
+        <li class="city" data-dato="Januar">Januar</li>
+        <li class="city" data-dato="Februar">Februar</li>
+        <li class="city" data-dato="Marts">Marts</li>
+        <li class="city" data-dato="April">April</li>
+        <li class="city" data-dato="Maj">Maj</li>
+        <li class="city" data-dato="Juni">Juni</li>
+        <li class="city" data-dato="Juli">Juli</li>
+        <li class="city" data-dato="August">August</li>
+        <li class="city" data-dato="September">September</li>
+        <li class="city" data-dato="Oktober">Oktober</li>
+        <li class="city" data-dato="November">November</li>
+        <li class="city" data-dato="December">December</li>
+      </ul>
+    </nav>
   </div>
 </article>
+
 <div class="grid_1-1-1 calenderlist">
   {kalender.map((events) => <Card event={events} />)}
 </div>
 
 <script>
+  // use strict - fanger fejl
   "use strict";
+
+  // URL - gemmer filteret i URLen - så man kan genindlæse siden med de samme filtre
+
   function url_param(key, value) {
     const url = new URL(window.location);
+
     if (value === "all") {
       url.searchParams.delete(key);
     } else {
@@ -29,48 +55,85 @@ const { kalender } = Astro.props;
 
     window.history.pushState({}, "", url);
   }
+
   function url_param_get(key) {
     const url = new URL(window.location);
     return url.searchParams.get(key);
   }
+  // filterknapper
 
   document.querySelector(".all").addEventListener("click", () => {
     url_param("type2", "all");
-    filterType();
+    filterDate();
   });
 
   document.querySelector(".rav").addEventListener("click", () => {
     url_param("type2", "rav");
-    filterType();
+    filterDate();
   });
 
   document.querySelector(".bibliotek").addEventListener("click", () => {
     url_param("type2", "bibliotek");
-    filterType();
+    filterDate();
   });
 
   document.querySelector(".bønnen").addEventListener("click", () => {
     url_param("type2", "bønnen");
-    filterType();
+    filterDate();
+  });
+  // Dato filter
+  const monthButtons = document.querySelectorAll("[data-dato]");
+
+  monthButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      url_param("dato", btn.dataset.dato);
+
+      filterDate();
+    });
   });
 
-  function filterType() {
+  // filter funktion
+  function filterDate() {
     const type2 = url_param_get("type2");
+    const selectedMonth = url_param_get("dato");
+
+    // månedskortlægning - kortlægger måned til tal (står i tal i api)
+    const monthMap = {
+      Januar: "01",
+      Februar: "02",
+      Marts: "03",
+      April: "04",
+      Maj: "05",
+      Juni: "06",
+      Juli: "07",
+      August: "08",
+      September: "09",
+      Oktober: "10",
+      November: "11",
+      December: "12",
+    };
 
     const cards = document.querySelectorAll(".card");
 
-    const activeButton = document.querySelector("." + CSS.escape(type2));
+    // aktivere filtre
 
     document.querySelectorAll(".filters button").forEach((b) => b.classList.remove("active"));
-
+    const activeButton = document.querySelector("." + CSS.escape(type2));
     if (activeButton) {
       activeButton.classList.add("active");
     }
 
+    // filtrering - går igennem alle kort
     cards.forEach((card) => {
-      if (!type2 || type2 === "all") {
-        card.style.display = "grid";
-      } else if (card.classList.contains(type2)) {
+      const typeMatch = !type2 || type2 === "all" || card.classList.contains(type2);
+
+      const date = card.querySelector(".event-date")?.textContent;
+
+      const month = date?.split("-")[1];
+
+      const monthMatch = !selectedMonth || month === monthMap[selectedMonth];
+
+      if (typeMatch && monthMatch) {
         card.style.display = "grid";
       } else {
         card.style.display = "none";
@@ -78,9 +141,22 @@ const { kalender } = Astro.props;
     });
   }
 
-  filterType();
+  filterDate();
+
+  // dropdown
+  const dropDown = document.querySelector(".dropDown");
+  const nav = document.querySelector("[data-filter-nav]");
+
+  dropDown.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
 </script>
 <style>
+  .filter-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   article {
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -89,6 +165,7 @@ const { kalender } = Astro.props;
     display: grid;
     row-gap: 1rem;
   }
+  /* knapper */
   button {
     background-color: var(--cta-color-light);
     color: var(--text-color-dark);
@@ -97,6 +174,7 @@ const { kalender } = Astro.props;
     margin-right: 0.5rem;
     cursor: pointer;
   }
+  /* alle */
   .all:hover {
     background-color: var(--darkblue);
     box-shadow: var(--shadow-medium);
@@ -106,7 +184,7 @@ const { kalender } = Astro.props;
     background-color: var(--darkblue);
     color: var(--text-color-light);
   }
-
+  /* rav */
   .rav:hover {
     background-color: var(--green);
     box-shadow: var(--shadow-medium);
@@ -114,6 +192,7 @@ const { kalender } = Astro.props;
   .rav.active {
     background-color: var(--green);
   }
+  /* bibliotek */
   .bibliotek:hover {
     background-color: var(--yellow);
     box-shadow: var(--shadow-medium);
@@ -121,6 +200,7 @@ const { kalender } = Astro.props;
   .bibliotek.active {
     background-color: var(--yellow);
   }
+  /* bønnen */
   .bønnen:hover {
     background-color: var(--pink);
     box-shadow: var(--shadow-medium);
@@ -128,6 +208,70 @@ const { kalender } = Astro.props;
   .bønnen.active {
     background-color: var(--pink);
   }
+
+  /* dropdown */
+  .dropDown {
+    cursor: pointer;
+    display: block;
+    padding: 1rem;
+  }
+  .dropDown:hover {
+    background-color: var(--cta-color-dark);
+    color: var(--text-color-light);
+    box-shadow: var(--shadow-medium);
+  }
+
+  .filter-buttons {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+    justify-content: center;
+    margin-left: auto;
+  }
+  nav.active .filter-buttons {
+    display: flex;
+    padding: 1.5em;
+    z-index: 100;
+  }
+  nav.active {
+    background: var(--bg-color);
+  }
+  button.dropDown {
+    border: 1px solid var(--cta-color-dark);
+    padding: 0.5rem 1rem;
+    margin-left: auto;
+    margin-bottom: 1rem;
+    background-color: var(--bg-color);
+    border-radius: 15px;
+  }
+
+  nav.active .filter-buttons {
+    display: block;
+    position: absolute;
+    flex-direction: column;
+    top: 240px;
+    right: 10px;
+    width: 120px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+
+  nav.active .filter-buttons li {
+    margin: 5px 10px;
+    background-color: var(--cta-color-dark);
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+    box-shadow: var(--shadow-medium);
+    color: var(--cta-color-light);
+    cursor: pointer;
+  }
+  nav.active .filter-buttons li:hover {
+    background-color: var(--cta-color-light);
+    color: var(--text-color-dark);
+  }
+
+  /* desktop */
   @media (min-width: 900px) {
     .grid_1-1-1 {
       display: grid;
