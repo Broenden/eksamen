@@ -1,0 +1,22 @@
+---
+//@ts-nocheck
+import IndexCard from "./IndexCard.astro";
+const { kalender } = Astro.props;
+---
+
+<div class="grid_1-1-1">
+  {kalender.map((events) => <IndexCard personData={events} />)}
+</div>
+
+<style>
+  /* desktop */
+  @media (min-width: 900px) {
+    .grid_1-1-1 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 400px));
+      gap: 1rem;
+      grid-template-rows: repeat(4, auto);
+      justify-content: center;
+    }
+  }
+</style>

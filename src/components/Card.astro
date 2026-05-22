@@ -12,7 +12,7 @@ import CtaDefault from "../components/CtaDefault.astro";
   <h4>{event.name}</h4>
   <p class="p-small">{event.shortDescription}</p>
   <p class="event-info">
-    <span>{event.date}</span>
+    <span class="event-date">{event.date}</span>
     <span>
       {event.timeStart} - {event.timeEnd}
     </span>
@@ -31,9 +31,7 @@ import CtaDefault from "../components/CtaDefault.astro";
     justify-content: center;
     margin: 0 auto;
   }
-  .event-wrapper {
-    display: contents;
-  }
+
   .card {
     padding: 2rem;
     margin: 1rem;

@@ -18,16 +18,6 @@ import CtaDefault from "../components/CtaDefault.astro";
 </article>
 
 <style>
-  .card-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-  .card-container {
-    display: flex;
-    flex-direction: column;
-    margin: 2rem;
-  }
   .card {
     width: 383px;
     height: auto;
@@ -36,6 +26,14 @@ import CtaDefault from "../components/CtaDefault.astro";
     background-color: var(--card-color-blue);
     text-align: center;
     padding: 0 0 3rem 0;
+  }
+  .card-container {
+    padding: 2rem;
+    margin: 1rem;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 4;
+    gap: 0;
   }
 
   .card-image {
@@ -57,12 +55,5 @@ import CtaDefault from "../components/CtaDefault.astro";
     font-size: var(--p-small-size);
     font-weight: var(--font-weight-light);
     color: var(--text-color-light);
-  }
-
-  @media (width>=800px) {
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
   }
 </style>
