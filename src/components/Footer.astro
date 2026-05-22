@@ -4,6 +4,8 @@ import { Image } from "astro:assets";
 import fb from "../assets/fb.svg";
 import insta from "../assets/insta.svg";
 import tiktok from "../assets/tiktok.svg";
+import type { astro } from "astro/fetch";
+const { footerLogo = "yellow" } = Astro.props;
 ---
 
 <footer>
@@ -44,7 +46,7 @@ import tiktok from "../assets/tiktok.svg";
     </div>
   </section>
   <section class="logo-container">
-    <Logo variant="yellow" />
+    <Logo variant={footerLogo} />
   </section>
 </footer>
 
