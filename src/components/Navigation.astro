@@ -1,16 +1,17 @@
 ---
 //@ts-nocheck
 import CtaDefault from "../components/CtaDefault.astro";
+const { class: className, variant = "dark", ctaVariant, burgerVariant } = Astro.props;
 ---
 
-<nav>
+<nav class={`nav nav--${variant} nav--${burgerVariant} ${className}`}>
   <ul class="menu">
     <li><a href="/rav">RAV</a></li>
     <li><a href="/boennen">B&B</a></li>
     <li><a href="/bibliotek">Bibliotek</a></li>
     <li><a href="/praktisk">Praktisk</a></li>
     <li><a href="om">Om os</a></li>
-    <li class="cta-desktop"><CtaDefault href="/kalender" tekst="Kalender" /></li>
+    <li class="cta-desktop"><CtaDefault href="/kalender" tekst="Kalender" variant={ctaVariant} /></li>
     <li class="cta-burger"><a href="/kalender">Kalender</a></li>
   </ul>
   <button class="burger">
@@ -23,11 +24,6 @@ import CtaDefault from "../components/CtaDefault.astro";
 <style>
   a {
     font-family: var(--font-family-beatrice);
-    color: var(--text-color-dark);
-
-    &:hover {
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.194);
-    }
   }
 
   li {
@@ -44,13 +40,36 @@ import CtaDefault from "../components/CtaDefault.astro";
     display: block;
     width: 100%;
     height: 2px;
-    background-color: var(--text-color-dark);
     margin-bottom: 5px;
     transition: 0.2s linear;
   }
   .burger,
   .cta-burger {
     display: none;
+  }
+
+  .nav--dark .burger .line {
+    background-color: var(--text-color-dark);
+  }
+
+  .nav--dark a {
+    color: var(--text-color-dark);
+
+    &:hover {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.194);
+    }
+  }
+
+  .nav--light .burger .line {
+    background-color: var(--text-color-light);
+  }
+
+  .nav--light a {
+    color: var(--text-color-light);
+
+    &:hover {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.194);
+    }
   }
 
   /* desktop */
@@ -71,7 +90,14 @@ import CtaDefault from "../components/CtaDefault.astro";
       right: -0.5rem;
       height: 100%;
       width: 1.5px;
+    }
+
+    .nav--dark li::after {
       background-color: var(--text-color-dark);
+    }
+
+    .nav--light li::after {
+      background-color: var(--text-color-light);
     }
 
     li:nth-child(5)::after,
@@ -111,7 +137,6 @@ import CtaDefault from "../components/CtaDefault.astro";
       top: 120px;
       left: 0;
       width: 100%;
-      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
       z-index: 1;
     }
 
@@ -121,10 +146,6 @@ import CtaDefault from "../components/CtaDefault.astro";
       border-radius: var(--border-radius);
       padding: 1rem;
       box-shadow: var(--shadow-medium);
-    }
-
-    nav.active .menu li:last-child {
-      background-color: var(--cta-color-light);
     }
 
     nav.active .menu a {
@@ -142,6 +163,26 @@ import CtaDefault from "../components/CtaDefault.astro";
 
     nav.active .menu .cta-desktop {
       display: none;
+    }
+
+    nav.active.nav--red .menu li {
+      background-color: var(--red);
+    }
+
+    nav.active.nav--green .menu li {
+      background-color: var(--green);
+    }
+
+    nav.active.nav--yellow .menu li {
+      background-color: var(--yellow);
+    }
+
+    nav.active.nav--yellow .menu li a {
+      color: var(--text-color-dark);
+    }
+
+    nav.active .menu li:last-child {
+      background-color: var(--cta-color-light);
     }
   }
 </style>
