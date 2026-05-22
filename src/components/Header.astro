@@ -2,24 +2,30 @@
 import "../styles/custom.css";
 import Logo from "../components/Logo.astro";
 import Navigation from "../components/Navigation.astro";
-const { variant = "dark" } = Astro.props;
+import { Image } from "astro:assets";
+const { class: className, variant, img, imgTekst, video, navColor, ctaVariant, logoVariant, burgerVariant } = Astro.props;
 ---
 
-<header>
-  <div class="logo-header">
-    <div>
+<header class={`header header--${variant} ${className}`}>
+  <section class="hero">
+    {video ? <video src={video} autoplay muted loop playsinline /> : img ? <Image src={img} alt={imgTekst} /> : null}
+  </section>
+  <section class="nav">
+    <div class="logo-header">
+      <div>
+        <a href="/">
+          <Logo variant={logoVariant} />
+        </a>
+      </div>
       <a href="/">
-        <Logo />
+        <p>
+          KULTURHUSET
+          <span>BRØNDEN</span>
+        </p>
       </a>
     </div>
-    <a href="/">
-      <p>
-        KULTURHUSET
-        <span>BRØNDEN</span>
-      </p>
-    </a>
-  </div>
-  <Navigation />
+    <Navigation variant={navColor} ctaVariant={ctaVariant} burgerVariant={burgerVariant} />
+  </section>
 </header>
 
 <style>
@@ -28,11 +34,13 @@ const { variant = "dark" } = Astro.props;
     font-size: 24px;
   }
 
-  header {
+  .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 2rem;
+    align-self: start;
+    grid-area: 1/1;
   }
 
   .logo-header {
@@ -47,5 +55,22 @@ const { variant = "dark" } = Astro.props;
 
   .logo-header span {
     display: block;
+  }
+
+  header {
+    display: grid;
+  }
+  .hero {
+    grid-area: 1/1;
+  }
+
+  .hero :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .header--light p {
+    color: var(--text-color-light);
   }
 </style>

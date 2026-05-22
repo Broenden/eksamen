@@ -10,10 +10,11 @@ import boennen5 from "../assets/boennen/boennen5.png";
 import boennen6 from "../assets/boennen/boennen6.svg";
 import boennen7 from "../assets/boennen/boennen7.svg";
 import Logo from "../components/Logo.astro";
+import boennenHero from "../assets/boennen/boennenHero.svg";
 //@ts-nocheck
 ---
 
-<PageLayout heading="Bønnen">
+<PageLayout heading="Bønnen" heroImg={boennenHero} heroImgTekst="Brønden & Bønnen" navColor="light" ctaVariant="light" logoVariant="red" headerVariant="light" burgerVariant="red">
   <BigCard
     img={boennen1}
     imgTekst="B&B café"
