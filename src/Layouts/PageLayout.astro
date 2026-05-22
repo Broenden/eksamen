@@ -3,7 +3,7 @@ import "../styles/custom.css";
 import "../styles/general.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-const { heading, heroImg, heroImgTekst, heroVideo, navColor, ctaVariant, logoVariant, headerVariant, burgerVariant } = Astro.props;
+const { heading, heroImg, heroImgTekst, heroVideo, navColor, ctaVariant, logoVariant, headerVariant, burgerVariant, footerLogo } = Astro.props;
 
 //@ts-nocheck
 ---
@@ -25,7 +25,7 @@ const { heading, heroImg, heroImgTekst, heroVideo, navColor, ctaVariant, logoVar
   <main>
     <slot />
   </main>
-  <Footer />
+  <Footer footerLogo={footerLogo} />
 </body>
 
 <style></style>
