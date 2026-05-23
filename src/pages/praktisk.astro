@@ -1,6 +1,68 @@
 ---
 import PageLayout from "../Layouts/PageLayout.astro";
+import { Image } from "astro:assets";
+import parkering from "../assets/parkering.svg";
+import SmallCard from "../components/SmallCard.astro";
 //@ts-nocheck
 ---
 
-<PageLayout heading="Praktisk" />
+<PageLayout heading="Praktisk">
+  <section>
+    <h2>Husregler</h2>
+    <p>
+      Brøndby Kulturhuse og Biblioteker er for alle. Følg vores husregler og hjælp os med at gøre Kulturhuset Brønden til et rart steder at være. Følg altid personalets anvisninger. Ved overtrædelse af husreglerne kan personalet bortvise brugere,
+      udstede karantæne eller tilkalde politiet. For børn og unge under 18 år gælder, at hvis ikke husreglerne respekteres, vil forældre og SSP/Ungeenheden blive kontaktet. Brønden er videoovervåget, og optagelserne samt persondata i øvrigt behandles
+      i henhold til gældende lovgivning. Husreglerne er vedtaget af Kommunalbestyrelsen i december 2025.
+    </p>
+  </section>
+  <h4>Generelle husregler</h4>
+  <ul>
+    <li>Hold den gode tone og tag hensyn til andre.</li>
+    <li>Pas godt på huset og vores møbler. Hærværk bliver anmeldt og erstatningskrav gjort gældende.</li>
+    <li>Ryd op efter dig selv og benyt de opstillede affaldsspande.</li>
+    <li>Børnebiblioteket er for børn og deres voksne.</li>
+    <li>Studiepladser og stillezoner er til studier og fordybelse.</li>
+    <li>Vis hensyn og brug høretelefoner, når du har telefonsamtaler eller lytter til musik.</li>
+    <li>Rygning af (E-)cigaretter samt indtagelse af euforiserende stoffer og medbragt alkohol er ikke tilladt. Alkohol købt i caféen eller i baren i forbindelse med et arrangement er tilladt.</li>
+    <li>Computere og internet må ikke benyttes til download og visning af anstødeligt og krænkende indhold.</li>
+    <li>(El-)løbehjul må ikke benyttes.</li>
+    <li>Unødig aktivering af alarm og nødstop kan medføre krav om erstatning.</li>
+    <li>Kæledyr må ikke medbringes.</li>
+  </ul>
+  <h4>Selvbetjent åbningstid</h4>
+  <ul>
+    <li>Du skal være fyldt 15 år for at benytte det selvbetjente bibliotek.</li>
+    <li>Du skal være registreret som bruger for at benytte biblioteket i den selvbetjente tid.</li>
+    <li>Du må ikke lukke andre ind på dit kort. Du kan få karantæne og dermed udelukkes fra brug af biblioteket i den selvbetjente tid.</li>
+  </ul>
+  <section>
+    <h2>Lukkedage og ændrede betjeningstider</h2>
+    <h4>Lukkedage</h4>
+    <ul>
+      <li>Påske: Skærtorsdag, langfredag, påskelørdag og 2. påskedag</li>
+      <li>1. maj</li>
+      <li>Kristi Himmelfartsdag</li>
+      <li>Grundlovsdag</li>
+      <li>2. pinsedag</li>
+      <li>Juleaftensdag samt 1. og 2. juledag</li>
+      <li>Nytårsaftensdag og nytårsdag</li>
+    </ul>
+    <h4>Ændrede åbnings- og bemandingstider</h4>
+    <p>Mellem jul og nytår: Ubemandet åbningstid kl. 10-17. Bemandet  åbningstid kl. 10-14.</p>
+  </section>
+  <section>
+    <div>
+      <h2>Adgangsforhold og parkering</h2>
+      <p>Bibliotek i Kulturhuset Brønden kan tilgås via kørestol, og der er handicaptoiletter i begge huse. Kulturhuset Brønden er fordelt på tre etager, og der er elevator.</p>
+      <h4>Kørestolspladser til arrangementer</h4>
+      <p>Vi tager særligt hensyn til gæster med funktionsnedsættelse. Er du kørestolsbruger, kan du sende en mail til bronden@brondby.dk inden arrangementet. Så reserverer vi en kørestolsplads til dig.</p>
+      <h4>Ledsagerbilletter</h4>
+      <p>Har du ledsagerkort, kan du tage en ledsager med gratis. Kontakt os på bronden@brondby.dk, hvis du har ledsagerkort og ønsker en gratis ledsagerbillet.</p>
+    </div>
+    <div>
+      <Image src={parkering} alt="Parkering" />
+      <SmallCard variant="yellow" tekst="Der er gratis udendørs parkeringsmuligheder (vær opmærksom på tidsbegrænsning).
+Der er gratis handicapparkering tæt ved indgangen (handicapparkeringskort påkrævet)" />
+    </div>
+  </section>
+</PageLayout>
