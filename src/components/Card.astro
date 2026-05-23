@@ -4,6 +4,7 @@
 const { event } = Astro.props;
 const { slug } = Astro.params;
 import "../styles/custom.css";
+import "../styles/general.css";
 import CtaDefault from "../components/CtaDefault.astro";
 ---
 
@@ -19,7 +20,7 @@ import CtaDefault from "../components/CtaDefault.astro";
   </p>
   <img src={event.img} alt={event.name} />
   <div class="cta">
-    <CtaDefault href={`/kalender/${event.slug}`} tekst="Læs mere" />
+    <CtaDefault href={`/kalender/${event.slug}`} tekst="Læs mere" variant={event.type2 === "rav" ? "light" : undefined} />
   </div>
 </article>
 
@@ -43,6 +44,12 @@ import CtaDefault from "../components/CtaDefault.astro";
 
   .card.rav {
     background-color: var(--card-color-grey);
+    color: var(--text-color-light);
+  }
+  .card.rav h4,
+  .card.rav p,
+  .card.rav span {
+    color: var(--text-color-light);
   }
 
   .card.bibliotek {
