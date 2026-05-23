@@ -1,6 +1,274 @@
 ---
 import PageLayout from "../Layouts/PageLayout.astro";
+import BigCard from "../components/BigCard.astro";
+import { Image } from "astro:assets";
+import om1 from "../assets/om1.png";
+import om2 from "../assets/om2.png";
+import SmallCard from "../components/SmallCard.astro";
+
 //@ts-nocheck
 ---
 
-<PageLayout heading="Om os" />
+<PageLayout heading="Om os">
+  <section class="om">
+    <BigCard
+      img={om1}
+      imgTekst="Brønden"
+      titel="Om Brønden"
+      tekst="Kulturhuset Brønden er del af Brøndby Kulturhuse og Biblioteker. Glashuset med lysvingerne ligger i hjertet af Brøndby Strand og er et åbent og rummeligt samlingssted for både store og små."
+      tekst2="Huset rummer et stort bibliotek, en biograf, koncertstedet RAV, Pensionisthuset Stranden, AOF, mødelokaler, multisal, bevægrum og meget andet."
+    />
+    <p>
+      Udover vores faste tilbud er Brøndbys rige foreningsliv hver dag med til at puste liv i huset. Se vores arrangementer <a href="/kalender"> lige her.</a>
+    </p>
+    <p>
+      På biblioteket Brønden kan du låne, aflevere og hente reserverede materialer i alle husets åbne timer – også når der ikke er bibliotekspersonale tilstede. Læs mere på <a href="https://www.brondby-bibliotekerne.dk/" target="_blank"
+        >brondby-bibliotekerne.dk
+      </a>
+    </p>
+  </section>
+  <section class="historie">
+    <h2>Brøndens historie</h2>
+    <p>I 2009 blev Kulturhuset Brøndens lysvinger tændt for første gang, og et nyt og moderne kulturhus fandt sin plads i hjertet af Brøndby Strand.</p>
+
+    <BigCard
+      order="-1"
+      img={om2}
+      imgTekst="Brønden byggeri"
+      tekst="På facaden af det sorte moderne glashus er 242 lodrette LED-lysbånd gemt i den perforerede antracitgrå solafskærmning, der omkranser husets 1. sal på alle fire sider. "
+      tekst2="Hver dag starter belysningen med gule og røde farver, som markerer solopgangen og cirka en time før solnedgang kører en kombination af blå og grønne farver, der bevæger sig i forskellige mønstre. Belysningen afsluttes med gyldne farver, solnedgangen, som aftager og glider over i en stjernehimmel, der slukkes et stykke efter midnat."
+    />
+    <!-- <SmallCard variant="yellow-nobutton">
+      <h4>Fakta om byggeriet</h4>
+      <ul>
+        <li>Bygherre: Brøndby Kommune</li>
+        <li>Opførelsesår: 2008-2009</li>
+        <li>Entreprenør: W. Lynggaard Petersen A/S</li>
+        <li>Udenfor: Lyskonceptet er udviklet af Philips</li>
+        <li>Bruttoareal: 4000 m2</li>
+      </ul> -->
+  </section>
+  <section class="personale">
+    <h2>Personale</h2>
+    <article>
+      <p class="bold">Kontakt</p>
+      <p>Mail: bronden@brondby.dk</p>
+      <p>Telefon: 43 28 20 00</p>
+    </article>
+    <article>
+      <section>
+        <h3>Ledelse</h3>
+        <div class="personale-card">
+          <div class="person">
+            <p class="bold">Maria Nielsen Westbrook</p>
+            <p>kanwe@brondby.dk</p>
+            <p>tlf. 20 32 03 29</p>
+            <p class="stilling">Leder af Brøndby Kulturhuse og Biblioteker</p>
+          </div>
+          <div class="person">
+            <p class="bold">Casper Skovgaard</p>
+            <p>casko@brondby.dk</p>
+            <p>tlf. 21 82 66 69</p>
+            <p class="stilling">Leder af aktivitet og formidling</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h3>Kulturservice</h3>
+        <div class="personale-card">
+          <div class="person">
+            <p class="bold">Flemming Rasmussen</p>
+            <p>flkra@brondby.dk</p>
+            <p class="stilling">Servicemedarbejder</p>
+          </div>
+          <div class="person">
+            <p class="bold">Jack Eriksen</p>
+            <p>jarik@brondby.dk</p>
+            <p class="stilling">Servicemedarbejder</p>
+          </div>
+          <div class="person">
+            <p class="bold">Martin Top Jakobsen</p>
+            <p>matoj@brondby.dk</p>
+            <p class="stilling">Servicemedarbejder</p>
+          </div>
+          <div class="person">
+            <p class="bold">Nina Westergaard</p>
+            <p>niwes@brondby.dk</p>
+            <p class="stilling">Servicemedarbejder</p>
+          </div>
+          <div class="person">
+            <p class="bold">Ronni Husmand Jørgensen</p>
+            <p>rohuj@brondby.dk</p>
+            <p class="stilling">Servicemedarbejder</p>
+          </div>
+          <div class="person">
+            <p class="bold">Ugur Cimen</p>
+            <p>uguci@brondby.dk</p>
+            <p class="stilling">Servicemedarbejder</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Kultur & Kommunikation</h3>
+        <div class="personale-card">
+          <div class="person">
+            <p class="bold">Anja Ørntoft</p>
+            <p>anorn@brondby.dk</p>
+            <p class="stilling">Event- og billetkoordinator</p>
+          </div>
+          <div class="person">
+            <p class="bold">Daniel Friis Kjær</p>
+            <p>danfk@brondby.dk</p>
+            <p class="stilling">Teknik og produktion</p>
+          </div>
+          <div class="person">
+            <p class="bold">Laura Bielefeldt-Jakobsen</p>
+            <p>labij@brondby.dk</p>
+            <p class="stilling">Udviklingskonsulent</p>
+          </div>
+          <div class="person">
+            <p class="bold">Marie Katrine Jessen</p>
+            <p>makaj@brondby.dk</p>
+            <p class="stilling">Kommunikationsmedarbejder</p>
+          </div>
+          <div class="person">
+            <p class="bold">Signe Lou Engelstrup</p>
+            <p>siloe@brondby.dk</p>
+            <p class="stilling">Pædagogisk projektmedarbejder</p>
+          </div>
+          <div class="person">
+            <p class="bold">Stine Kærsgaard Sørensen</p>
+            <p>stkos@brondby.dk</p>
+            <p class="stilling">Kommunikationskonsulent</p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h3>Stab</h3>
+        <div class="personale-card">
+          <div class="person">
+            <p class="bold">Merete Bachau</p>
+            <p>mba@brondby.dk</p>
+            <p class="stilling">Personale og økonomi</p>
+          </div>
+        </div>
+        <div class="info-link">
+          <p>Find information på bibliotekets personale <a href="https://www.brondby-bibliotekerne.dk/information/personale" target="_blank">her.</a></p>
+        </div>
+      </section>
+    </article>
+  </section>
+</PageLayout>
+
+<style>
+  section {
+    margin: 2.5rem;
+  }
+
+  a {
+    font: inherit;
+    text-decoration: underline;
+  }
+
+  p {
+    margin: 1rem 0;
+  }
+
+  .om :global(section),
+  .historie :global(section) {
+    margin-bottom: 1rem;
+    margin-top: 0;
+    gap: 2rem;
+  }
+
+  section :global(.content) {
+    margin: 0;
+  }
+
+  section :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .historie :global(.content) {
+    justify-content: start;
+  }
+
+  li {
+    font-family: var(--font-family-montserrat);
+    font-size: var(--p-small-size);
+    color: var(--text-color-dark);
+    font-weight: var(--font-weight-light);
+    margin-bottom: 0.5ch;
+    list-style-type: none;
+  }
+  h4 {
+    margin-bottom: 1ch;
+  }
+
+  .personale p {
+    margin: 0;
+  }
+
+  .bold {
+    font-weight: var(--font-weight-medium);
+  }
+
+  .personale {
+    margin-top: 8rem;
+  }
+
+  .personale .stilling {
+    margin: 1ch 0 3ch 0;
+  }
+
+  .personale-card {
+    background-color: var(--card-color-yellow);
+    border-radius: var(--border-radius);
+    padding: 1.6rem 1rem 0.1rem 1rem;
+    margin-top: 0.8rem;
+  }
+
+  .personale article section {
+    margin: 0;
+    margin-top: 1.5rem;
+  }
+
+  .info-link {
+    margin-top: 2rem;
+    margin-left: 0.2rem;
+  }
+
+  @media (width>=800px) {
+    .personale article:last-child {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(3, 1fr);
+      margin-top: 1rem;
+      gap: 4rem;
+      row-gap: 0.5rem;
+    }
+
+    .personale article section:first-of-type {
+      grid-column: 1/2;
+      grid-row: 1/2;
+    }
+
+    .personale article section:nth-of-type(2) {
+      grid-column: 1/2;
+      grid-row: 2/-1;
+    }
+
+    .personale article section:nth-of-type(3) {
+      grid-column: -1/-2;
+      grid-row: 1/3;
+    }
+    /* .historie :global(.small-card) {
+      top: -110px;
+      right: -550px;
+      max-width: 30vw;
+    } */
+  }
+</style>
