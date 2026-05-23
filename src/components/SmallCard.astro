@@ -5,6 +5,7 @@ const { tekst, ctaTekst, href, ctaVariant, variant = "brown" } = Astro.props;
 
 <section class={`small-card small-card--${variant} `}>
   <p>{tekst}</p>
+  <slot />
   <div class="cta">
     <CtaDefault href={href} tekst={ctaTekst} variant={ctaVariant} />
   </div>
