@@ -124,16 +124,14 @@ Søndag: Lukket"
   }
   .BigCard-1,
   .BigCard-4 {
-    margin-top: 4rem;
+    margin-top: 3rem;
   }
   .BigCard-5 {
     margin-bottom: 2rem;
   }
-  .OverlayCard {
-    position: absolute;
-    top: 450px;
-    right: 20px;
-    z-index: 10;
+
+  .OverlayCard-2 :global(p) {
+    max-width: 15ch;
   }
 
   .OverlayCard-2 {
@@ -142,19 +140,20 @@ Søndag: Lukket"
     right: 80px;
     z-index: 10;
   }
-
-  .OverlayCard-2 :global(p) {
-    max-width: 15ch;
-  }
-  .OverlayCard-2 :global(p) {
-    max-width: 15ch;
+  .OverlayCard {
+    position: absolute;
+    top: 450px;
+    right: 20px;
+    z-index: 10;
   }
   @media (min-width: 900px) {
     .OverlayCard {
-      position: absolute;
       top: 450px;
       right: -20px;
-      z-index: 10;
+    }
+    .OverlayCard-2 {
+      top: 280px;
+      right: 110px;
     }
   }
   /* booktok */
@@ -195,7 +194,7 @@ Søndag: Lukket"
       width: 150px;
     }
     .BooktokBooks {
-      top: 2150px;
+      top: 2250px;
       left: 280px;
       grid: 1fr / repeat(auto-fit, minmax(150px, 1fr));
     }
