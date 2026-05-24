@@ -1,13 +1,13 @@
 ---
 import CtaDefault from "./CtaDefault.astro";
-const { tekst, ctaTekst, href, ctaVariant, variant = "brown" } = Astro.props;
+const { tekst, ctaTekst, href, ctaVariant, variant = "brown", target } = Astro.props;
 ---
 
 <section class={`small-card small-card--${variant} `}>
   <p>{tekst}</p>
   <slot />
   <div class="cta">
-    <CtaDefault href={href} tekst={ctaTekst} variant={ctaVariant} />
+    <CtaDefault href={href} tekst={ctaTekst} variant={ctaVariant} target={target} />
   </div>
 </section>
 
