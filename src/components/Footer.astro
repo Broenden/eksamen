@@ -53,14 +53,16 @@ const { footerLogo = "yellow" } = Astro.props;
 <style>
   footer {
     background-color: var(--footer-color);
-    padding: 2rem 2rem 0 2rem;
+    padding: 4rem 2rem 0;
+    display: grid;
+    position: relative;
+    overflow: hidden;
   }
 
   section:first-child {
     display: grid;
     gap: 2rem;
-    position: relative;
-    top: 60px;
+    padding-bottom: 17rem;
   }
 
   p,
@@ -83,13 +85,13 @@ const { footerLogo = "yellow" } = Astro.props;
   }
 
   .logo-container {
-    max-width: 200px;
-    min-width: 200px;
-    position: relative;
-    transform: rotate(-90deg);
+    position: absolute;
     bottom: -93px;
-    place-self: center;
+    left: 50%;
+    transform: translateX(-50%) rotate(-90deg);
+    width: 220px;
   }
+
   @media (min-width: 800px) {
     .logo-container {
       max-width: 300px;
