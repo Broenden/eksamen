@@ -30,9 +30,11 @@ const data = await response.json();
 
       <IndexCardContainer kalender={data} />
 
+      <a class="til-kalender" href="/kalender">Se alle arrangementer &rarr; </a>
+
       <BigCard
         img={import("../assets/forside/forsideRav.svg")}
-        imgTekst="billed af rav"
+        imgTekst="billed af optrædne i kulturhuset brønden. "
         titel="Rav"
         tekst="RAV arrangerer koncerter og er til for musikken, byen og kulturen. Fokus er på ny musik og trends, samt musikgenrerne rap/hiphop, pop og roots 'n' hybrid. Der afholdes primært koncerter og aktiviteter i Kulturhuset Brønden. Der kan være 500 publikummer til koncerterne.
 Blandt andre har RAV lavet koncerter med Lamin, RH, Dejah Makar, AFSKUM og UNG-SKAB."
@@ -43,12 +45,23 @@ Blandt andre har RAV lavet koncerter med Lamin, RH, Dejah Makar, AFSKUM og UNG-S
 
       <BigCard
         img={import("../assets/forside/forsideBoennen.svg")}
-        imgTekst="Brønden & Bønnen holder åbent på hverdage fra kl. 10 til 14. "
+        imgTekst="cafe på kulturhuset brønden. "
         titel="Bønnen"
         tekst="Caféen Brønden & Bønnen danner ramme om gode smagsoplevelser, fællesskab og hverdagsmøder mellem Brøndbys borgere."
         ctaTekst="Læs mere"
         href="/boennen"
         order="-1"
+        variant="button"
+      />
+
+      <BigCard
+        img={import("../assets/forside/fpo.png")}
+        imgTekst="biblioteket på kulturhuset brønden. "
+        titel="Biblioteket"
+        tekst="På biblioteket Brønden kan du låne, aflevere og hente reserverede materialer i alle husets åbne timer – også når det ikke er bibliotekspersonale tilstede."
+        ctaTekst="Læs mere"
+        href="/biblioteket"
+        order="1"
         variant="button"
       />
     </PageLayout>
@@ -61,6 +74,17 @@ Blandt andre har RAV lavet koncerter med Lamin, RH, Dejah Makar, AFSKUM og UNG-S
     margin-bottom: 2rem;
     font-size: 2.5rem;
     text-align: center;
+  }
+
+  .til-kalender {
+    text-align: end;
+    display: block;
+    margin-right: 3rem;
+    margin-bottom: 5rem;
+  }
+
+  .til-kalender:hover {
+    text-decoration: underline;
   }
 
   @media (width<800px) {
