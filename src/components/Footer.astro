@@ -83,12 +83,18 @@ const { footerLogo = "yellow" } = Astro.props;
   }
 
   .logo-container {
-    max-width: 300px;
-    min-width: 300px;
+    max-width: 200px;
+    min-width: 200px;
     position: relative;
     transform: rotate(-90deg);
     bottom: -93px;
     place-self: center;
+  }
+  @media (min-width: 800px) {
+    .logo-container {
+      max-width: 300px;
+      min-width: 300px;
+    }
   }
 
   .contact-info {
