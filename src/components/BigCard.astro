@@ -2,17 +2,17 @@
 import { Image } from "astro:assets";
 import CtaDefault from "./CtaDefault.astro";
 // const { placeholder, buttonText, text, title } = Astro.props;
-const { img, imgTekst, tekst, tekst2, titel, ctaTekst, href, order, variant = "no-button" } = Astro.props;
+const { img, imgTekst, tekst, tekst2, titel, ctaTekst, href, order, variant = "no-button", target } = Astro.props;
 ---
 
 <section class={`big-card big-card--${variant} `}>
-  <Image class="big-card__image" src={img} alt={imgTekst} />
+  <Image src={img} alt={imgTekst} />
   <div class="content">
     <h2>{titel}</h2>
     <p>{tekst}</p>
     <p>{tekst2}</p>
     <div class="cta">
-      <CtaDefault href={href} tekst={ctaTekst} />
+      <CtaDefault href={href} tekst={ctaTekst} target={target} />
     </div>
   </div>
 </section>
@@ -28,6 +28,10 @@ const { img, imgTekst, tekst, tekst2, titel, ctaTekst, href, order, variant = "n
     margin: 1rem 3rem;
   }
 
+  .big-card {
+    margin: 9rem 0;
+  }
+
   .cta {
     display: none;
   }
@@ -35,15 +39,14 @@ const { img, imgTekst, tekst, tekst2, titel, ctaTekst, href, order, variant = "n
     display: block;
   }
 
+  .big-card--button-pink .cta {
+    display: block;
+  }
+
   .big-card--button-pink {
     background-color: var(--card-color-pink);
     padding: 2rem 0;
     margin-bottom: 0;
-  }
-
-  .big-card__image {
-    margin-left: 2rem;
-    max-width: 700px;
   }
 
   @media (width>=800px) {
