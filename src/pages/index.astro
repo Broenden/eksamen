@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import IndexCardContainer from "../components/IndexCardContainer.astro";
 import PageLayout from "../Layouts/PageLayout.astro";
 import BigCard from "../components/BigCard.astro";
+import SmallCard from "../components/SmallCard.astro";
 import broendenHero from "../assets/broendenHero.png";
 import videobroenden from "/videobroenden.mp4";
 
@@ -26,44 +27,55 @@ const data = await response.json();
   </head>
   <body>
     <PageLayout heading="Index" heroVideo={videobroenden} heroImgTekst="Kulturhuset Brønden" navColor="light" ctaVariant="light" headerVariant="light">
-      <h1>Det sker i Kulturhuset Brønden</h1>
+      <section>
+        <h1>Det sker i Kulturhuset Brønden</h1>
 
-      <IndexCardContainer kalender={data} />
+        <IndexCardContainer kalender={data} />
 
-      <a class="til-kalender" href="/kalender">Se alle arrangementer &rarr; </a>
+        <a class="til-kalender" href="/kalender">Se alle arrangementer &rarr; </a>
+      </section>
 
-      <BigCard
-        img={import("../assets/forside/forsideRav.svg")}
-        imgTekst="billed af optrædne i kulturhuset brønden. "
-        titel="Rav"
-        tekst="RAV arrangerer koncerter og er til for musikken, byen og kulturen. Fokus er på ny musik og trends, samt musikgenrerne rap/hiphop, pop og roots 'n' hybrid. Der afholdes primært koncerter og aktiviteter i Kulturhuset Brønden. Der kan være 500 publikummer til koncerterne.
+      <section>
+        <BigCard
+          img={import("../assets/forside/forsideRav.svg")}
+          imgTekst="billed af optrædne i kulturhuset brønden. "
+          titel="Rav"
+          tekst="RAV arrangerer koncerter og er til for musikken, byen og kulturen. Fokus er på ny musik og trends, samt musikgenrerne rap/hiphop, pop og roots 'n' hybrid. Der afholdes primært koncerter og aktiviteter i Kulturhuset Brønden. Der kan være 500 publikummer til koncerterne.
 Blandt andre har RAV lavet koncerter med Lamin, RH, Dejah Makar, AFSKUM og UNG-SKAB."
-        ctaTekst="Læs mere"
-        href="/rav"
-        variant="button"
-      />
+          ctaTekst="Læs mere"
+          href="/rav"
+          variant="button"
+        />
 
-      <BigCard
-        img={import("../assets/forside/forsideBoennen.svg")}
-        imgTekst="cafe på kulturhuset brønden. "
-        titel="Bønnen"
-        tekst="Caféen Brønden & Bønnen danner ramme om gode smagsoplevelser, fællesskab og hverdagsmøder mellem Brøndbys borgere."
-        ctaTekst="Læs mere"
-        href="/boennen"
-        order="-1"
-        variant="button"
-      />
+        <article class="big-card_boennen">
+          <BigCard
+            img={import("../assets/forside/forsideBoennen.svg")}
+            imgTekst="cafe på kulturhuset brønden. "
+            titel="Bønnen"
+            tekst="Caféen Brønden & Bønnen danner ramme om gode smagsoplevelser, fællesskab og hverdagsmøder mellem Brøndbys borgere."
+            ctaTekst="Læs mere"
+            href="/boennen"
+            order="-1"
+            variant="button"
+          />
 
-      <BigCard
-        img={import("../assets/forside/fpo.png")}
-        imgTekst="biblioteket på kulturhuset brønden. "
-        titel="Biblioteket"
-        tekst="På biblioteket Brønden kan du låne, aflevere og hente reserverede materialer i alle husets åbne timer – også når det ikke er bibliotekspersonale tilstede."
-        ctaTekst="Læs mere"
-        href="/biblioteket"
-        order="1"
-        variant="button"
-      />
+          <div class="OverlayCard">
+            <SmallCard tekst="Brønden & Bønnen holder åbent på hverdage fra kl. 10 til 14." variant="pink" />
+          </div>
+        </article>
+
+        <BigCard
+          class="big-card-bibliotek"
+          img={import("../assets/forside/fpo.png")}
+          imgTekst="biblioteket på kulturhuset brønden. "
+          titel="Biblioteket"
+          tekst="På biblioteket Brønden kan du låne, aflevere og hente reserverede materialer i alle husets åbne timer – også når det ikke er bibliotekspersonale tilstede."
+          ctaTekst="Læs mere"
+          href="/biblioteket"
+          order="1"
+          variant="button"
+        />
+      </section>
     </PageLayout>
   </body>
 </html>
@@ -85,6 +97,21 @@ Blandt andre har RAV lavet koncerter med Lamin, RH, Dejah Makar, AFSKUM og UNG-S
 
   .til-kalender:hover {
     text-decoration: underline;
+  }
+
+  .big-card_boennen {
+    position: relative;
+    z-index: 1;
+  }
+
+  .OverlayCard {
+    position: absolute;
+    width: 250px;
+    height: 150px;
+    top: 61%;
+    right: 12%;
+
+    z-index: 10;
   }
 
   @media (width<800px) {
