@@ -8,7 +8,7 @@ const { class: className, variant, img, imgTekst, video, navColor, ctaVariant, l
 
 <header class={`header header--${variant} ${className}`}>
   <section class="hero">
-    {video ? <video src={video} autoplay muted loop playsinline /> : img ? <Image src={img} alt={imgTekst} /> : null}
+    {video ? <video class="hero-video" src={video} autoplay muted loop playsinline /> : img ? <Image src={img} alt={imgTekst} /> : null}
   </section>
   <section class="nav">
     <div class="logo-header">
@@ -72,5 +72,20 @@ const { class: className, variant, img, imgTekst, video, navColor, ctaVariant, l
 
   .header--light p {
     color: var(--text-color-light);
+  }
+
+  .hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (width<800px) {
+    .hero-video {
+    }
+
+    p {
+      font-size: 18px;
+    }
   }
 </style>

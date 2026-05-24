@@ -19,4 +19,13 @@ const { kalender } = Astro.props;
       justify-content: center;
     }
   }
+
+  /* mobile */
+  @media (width<800px) {
+    .grid_1-1-1 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+      justify-content: center;
+    }
+  }
 </style>
