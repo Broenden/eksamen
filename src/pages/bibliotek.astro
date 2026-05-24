@@ -1,4 +1,5 @@
 ---
+//@ts-nocheck
 import { Image } from "astro:assets";
 import PageLayout from "../Layouts/PageLayout.astro";
 import bibliotekHero from "../assets/bibliotek/bibliotekHero.png";
@@ -8,63 +9,125 @@ import SmallCard from "../components/SmallCard.astro";
 import bibliotek2 from "../assets/bibliotek/bibliotek2-ny.svg";
 import bibliotek3 from "../assets/bibliotek/bibliotek3.svg";
 import bibliotek4 from "../assets/bibliotek/bibliotek4-ny.svg";
-import bibliotek5 from "../assets/bibliotek/bibliotek5.svg";
-//@ts-nocheck
+import bibliotek5 from "../assets/bibliotek/bibliotek5-ny.svg";
+
+const response = await fetch("https://bjirvinbqadjnyjgfaze.supabase.co/rest/v1/kalender", {
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqaXJ2aW5icWFkam55amdmYXplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkwMDExMTIsImV4cCI6MjA5NDU3NzExMn0.7zVbvnasSjz7OidFqNKZ2ahvwutN0cPIuVfSlZBV6ks",
+  },
+});
+const data = await response.json();
+
+const braetspilEvent = data.find((item) => item.name === "Brætspilscafé");
 ---
 
 <PageLayout heading="Bibliotek" heroImg={bibliotekHero} heroImgTekst="Biblioteket i Brønden" navColor="light" ctaVariant="light" logoVariant="yellow" headerVariant="light" burgerVariant="yellow">
-  <BigCard
-    img={bibliotek1}
-    imgTekst="Biblioteket bøger"
-    titel="Nye bøger"
-    tekst="Se vores sprit nye udvalg af bøger! Læs om alt fra faglitteratur til fantasy og krimier."
-    tekst2="Du finder dem ved indgangen til biblioteket i Brønden, eller du kan reservere din favorit allerede nu på Brøndby Bibliotekerne."
-    ctaTekst="Nye udgivelser"
-    href="/"
-    variant="button"
-  />
-
-  <BigCard
-    order="-1"
-    img={bibliotek2}
-    imgTekst="Biblioteket bog"
-    titel="Åbningstider"
-    tekst="Åbningstider og bemandingstider for biblioteket kan variere, men vi har som udgangspunkt følgende tider:"
-    tekst2="Åbent
+  <article>
+    <section class="BigCard-1">
+      <BigCard
+        img={bibliotek1}
+        imgTekst="Biblioteket bøger"
+        titel="Nye bøger"
+        tekst="Se vores sprit nye udvalg af bøger! Læs om alt fra faglitteratur til fantasy og krimier."
+        tekst2="Du finder dem ved indgangen til biblioteket i Brønden, eller du kan reservere din favorit allerede nu på Brøndby Bibliotekerne."
+        ctaTekst="Nye udgivelser"
+        href="/"
+        variant="button"
+      />
+    </section>
+    <section class="BigCard-2">
+      <BigCard
+        order="-1"
+        img={bibliotek2}
+        imgTekst="Biblioteket bog"
+        titel="Åbningstider"
+        tekst="Åbningstider og bemandingstider for biblioteket kan variere, men vi har som udgangspunkt følgende tider:"
+        tekst2="Åbent
 Man-Torsdag: 8-20
 Fredag: 10-18
 Lørdag: 10-17
 Søndag: Lukket"
-    tekst3="Bemanding
+        tekst3="Bemanding
 Man-Torsdag: 12-17
 Fredag: 12-16
 Lørdag: 10-14
 Søndag: Lukket"
-    ctaTekst="Se tider"
-    href="/"
-    variant="button"
-  />
-  <SmallCard tekst="Se vores udvalg af bøger, og reservér dem allerede nu på Brøndby Bibliotekerne." ctaTekst="Find bøger" ctaVariant="light" variant="yellow" />
-  <article>
-    <h2>Trender på Booktok</h2>
-    <Image src={bibliotek3} alt="Biblioteket booktok" />
+        ctaTekst="Se tider"
+        href="/"
+        variant="button"
+      />
+      <div class="OverlayCard">
+        <SmallCard tekst="Se vores udvalg af bøger, og reservér dem allerede nu på Brøndby Bibliotekerne." ctaTekst="Find bøger" variant="yellow" />
+      </div>
+    </section>
+    <section class="BigCard-3">
+      <h2>Trender på Booktok</h2>
+      <Image src={bibliotek3} alt="Biblioteket booktok" />
+    </section>
+
+    <section class="BigCard-4">
+      <BigCard
+        img={bibliotek4}
+        imgTekst="brætspil"
+        titel="Brætspilscafé"
+        tekst="Hver mandag holder vi brætspilscafé i Brønden, hvor den står på spil, snak og hygge for alle pengene. Uanset om du er nybegynder eller brætspilsentusiast er du velkommen, for vi spiller på kryds og tværs og hjælper hinanden."
+        ctaTekst="Læs om eventet"
+        href={`/kalender/${braetspilEvent.slug}`}
+        variant="button"
+      />
+    </section>
+    <section class="BigCard-5">
+      <BigCard
+        order="-1"
+        img={bibliotek5}
+        imgTekst="studiefaciliteter"
+        titel="Studiefaciliteter "
+        tekst="Skal du printe din opgave, mødes med studiekammerater eller bare sidde i ro med din pc? Vi har wifi på biblioteket og mulighed for at printe og kopiere."
+        tekst2="I Kulturhuset Brønden er det muligt at sidde i biblioteksrummet og studere."
+      />
+      <div class="OverlayCard-2">
+        <SmallCard tekst="Se mere om print, scan og kopi på Brøndby Bibliotekerne." ctaTekst="Læs mere" href="/" ctaVariant="light" variant="darkblue" />
+      </div>
+    </section>
   </article>
-  <BigCard
-    img={bibliotek4}
-    imgTekst="brætspil"
-    titel="Brætspilscafé"
-    tekst="Hver mandag holder vi brætspilscafé i Brønden, hvor den står på spil, snak og hygge for alle pengene. Uanset om du er nybegynder eller brætspilsentusiast er du velkommen, for vi spiller på kryds og tværs og hjælper hinanden. Så tag dine søskende, din nabo eller din bedste ven under armen. Eller kom ned solo og find en ny bedste brætspilsmakker. Vi ses!"
-    ctaTekst="Læs om eventet"
-    href="/"
-    variant="button"
-  />
-  <BigCard
-    order="-1"
-    img={bibliotek5}
-    imgTekst="studiefaciliteter"
-    titel="Studiefaciliteter "
-    tekst="Skal du printe din opgave, mødes med studiekammerater eller bare sidde i ro med din pc? Vi har wifi på biblioteket og mulighed for at printe og kopiere."
-    tekst2="I Kulturhuset Brønden er det muligt at sidde i biblioteksrummet og studere."
-  />
-  <SmallCard tekst="Se mere om print, scan og kopi på Brøndby Bibliotekerne." ctaTekst="Læs mere" href="/" ctaVariant="light" variant="darkblue" />
 </PageLayout>
+
+<style>
+  article :not(.BigCard-1, .BigCard-5) {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    row-gap: 1rem;
+  }
+  .BigCard-5,
+  .BigCard-2 {
+    position: relative;
+  }
+  .BigCard-1,
+  .BigCard-4 {
+    margin-top: 4rem;
+  }
+  .BigCard-5 {
+    margin-bottom: 2rem;
+  }
+  .OverlayCard {
+    position: absolute;
+    top: 450px;
+    right: -20px;
+    z-index: 10;
+  }
+  .OverlayCard-2 {
+    position: absolute;
+    top: 282px;
+    right: 80px;
+    z-index: 10;
+  }
+
+  .OverlayCard-2 :global(p) {
+    max-width: 15ch;
+  }
+  .OverlayCard-2 :global(p) {
+    max-width: 15ch;
+  }
+</style>
