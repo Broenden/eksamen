@@ -28,7 +28,7 @@
   --h3-size: clamp(15px, 2vw, 30px);
   --h4-size: clamp(12px, 2vw, 24px);
   --p-size: clamp(12px, 2vw, 24px);
-  --p-small-size: clamp(10px, 2vw, 20px);
+  --p-small-size: clamp(10px, 2vw, 18px);
   --cta-text-size: clamp(16px, 2vw, 20px);
 
   /* textstyles */
