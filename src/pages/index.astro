@@ -26,7 +26,7 @@ const data = await response.json();
   </head>
   <body>
     <PageLayout heading="Index" heroVideo={videobroenden} heroImgTekst="Kulturhuset Brønden" navColor="light" ctaVariant="light" headerVariant="light">
-      <h1>Astro</h1>
+      <h1>Det sker i Kulturhuset Brønden</h1>
 
       <IndexCardContainer kalender={data} />
 
@@ -54,3 +54,18 @@ Blandt andre har RAV lavet koncerter med Lamin, RH, Dejah Makar, AFSKUM og UNG-S
     </PageLayout>
   </body>
 </html>
+
+<style>
+  h1 {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  @media (width<800px) {
+    .menu {
+      gap: 12rem;
+    }
+  }
+</style>

@@ -6,7 +6,7 @@ const { img, imgTekst, tekst, tekst2, titel, ctaTekst, href, order, variant = "n
 ---
 
 <section class={`big-card big-card--${variant} `}>
-  <Image src={img} alt={imgTekst} />
+  <Image class="big-card__image" src={img} alt={imgTekst} />
   <div class="content">
     <h2>{titel}</h2>
     <p>{tekst}</p>
@@ -39,6 +39,11 @@ const { img, imgTekst, tekst, tekst2, titel, ctaTekst, href, order, variant = "n
     background-color: var(--card-color-pink);
     padding: 2rem 0;
     margin-bottom: 0;
+  }
+
+  .big-card__image {
+    margin-left: 2rem;
+    max-width: 700px;
   }
 
   @media (width>=800px) {
