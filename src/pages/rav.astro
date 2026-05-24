@@ -2,7 +2,70 @@
 import PageLayout from "../Layouts/PageLayout.astro";
 import ravHero from "../assets/rav/ravHero.png";
 import videorav from "/videorav.mp4";
+import BigCard from "../components/BigCard.astro";
+
 //@ts-nocheck
 ---
 
+<PageLayout heading="RAV" heroVideo={videorav} heroImg={ravHero} heroImgTekst="RAV" navColor="light" ctaVariant="light" logoVariant="green" headerVariant="light" burgerVariant="green" footerLogo="green">
+  <!-- kommende koncert -->
+  <section class="BigCard-1">
+    <h2>Kommende koncert</h2>
+
+    <BigCard
+      img={import("../assets/rav/rav1.svg")}
+      imgTekst="RAV koncert"
+      titel="Kommende koncert"
+      tekst="Black Wonderworld er et sortklædt rave, hvor trance, techno psytrance vil drive din krop til grænsen. **** Sort dresscode. **** Rå energi. **** Bass beat der banker ind i din brystkasse skaber en vanvittig god fornemmelse.
+
+Er du klar til at træde ind i mørket?"
+    />
+  </section>
+
+  <!-- frivilig -->
+  <section class="grå-sektion"></section>
+
+  <!-- om rav -->
+  <section class="BigCard-2">
+    <BigCard
+      img={import("../assets/rav/rav2.svg")}
+      imgTekst="RAV koncert"
+      titel="Om Rav"
+      tekst="Rav er et koncertsted, som ligge i Brøndby Stand. Vi er til for musikken, byen og kulturen. Koncertstilen er samtidig musik med fokus på byens kulturelle identitet, nye artister og strømninger, fællesskab. diversitet og interessante nicher. Hos os kan du opdage et hvirvlende program, som tager dig til at fra den danske rapscene, ghettotech fest i Detroit, portugisisk folkemusik, norsk techno rave, stjernebestøvet fællessang, ømme øjeblikke på Vestegnen og feministisk kamp i Tyrkiet."
+    />
+    <BigCard
+      img={import("../assets/rav/rav3.svg")}
+      imgTekst="RAV koncert"
+      tekst="I vores koncertsal i Brønden kan der være op til 500 publikummer. Der er en billig bar, som er drevet af en lokal forening, hvor man blandt ander kan få sodavand, kaffe, drinks, øl og vand. Vi har et venligt, professionelt personale, der er altid klar til at hjælpe dig. RAV er støttet af Statens Kunstfond og Brøndby Kommune.
+
+Hos os kan man komme, som man er, så længe du passer på og respekterer dine medpublikkummer."
+      order="-1"
+    />
+  </section>
+
+  <!-- billedgalleri -->
+  <section class="billedgalleri"></section>
+
+  <!-- 
 <PageLayout heading="RAV" heroVideo={videorav} heroImg={ravHero} heroImgTekst="RAV" navColor="light" ctaVariant="light" logoVariant="green" headerVariant="light" burgerVariant="green" footerLogo="green" />
+ -->
+
+  <style>
+    .BigCard-1,
+    .BigCard-2 {
+      margin: 2rem;
+    }
+
+    .grå-sektion {
+      background-color: var(--card-color-grey);
+      height: 50em;
+      margin-top: 2rem;
+    }
+
+    .billedgalleri {
+      background-color: var(--card-color-grey);
+      height: 70em;
+      margin-top: 2rem;
+    }
+  </style>
+</PageLayout>
