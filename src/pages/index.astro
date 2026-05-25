@@ -16,74 +16,67 @@ const response = await fetch(`https://bjirvinbqadjnyjgfaze.supabase.co/rest/v1/k
 const data = await response.json();
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <PageLayout heading="Index" heroVideo={videobroenden} heroImgTekst="Kulturhuset Brønden" navColor="light" ctaVariant="light" headerVariant="light">
-      <section>
-        <h1>Det sker i Kulturhuset Brønden</h1>
+<PageLayout heading="Index" heroVideo={videobroenden} heroImgTekst="Kulturhuset Brønden" navColor="light" ctaVariant="light" headerVariant="light">
+  <div class="page-content">
+    <section class="section-1">
+      <h1>Det sker i Kulturhuset Brønden</h1>
 
-        <IndexCardContainer kalender={data} />
+      <IndexCardContainer kalender={data} />
 
-        <a class="til-kalender" href="/kalender">Se alle arrangementer &rarr; </a>
-      </section>
+      <a class="til-kalender" href="/kalender">Se alle arrangementer &rarr; </a>
+    </section>
 
-      <section>
-        <BigCard
-          img={import("../assets/forside/forsideRav.svg")}
-          imgTekst="billed af optrædne i kulturhuset brønden. "
-          titel="Rav"
-          tekst="RAV arrangerer koncerter og er til for musikken, byen og kulturen. Fokus er på ny musik og trends, samt musikgenrerne rap/hiphop, pop og roots 'n' hybrid. Der afholdes primært koncerter og aktiviteter i Kulturhuset Brønden. Der kan være 500 publikummer til koncerterne.
+    <section class="section-2">
+      <BigCard
+        img={import("../assets/forside/forsideRav.svg")}
+        imgTekst="billed af optrædne i kulturhuset brønden. "
+        titel="Rav"
+        tekst="RAV arrangerer koncerter og er til for musikken, byen og kulturen. Fokus er på ny musik og trends, samt musikgenrerne rap/hiphop, pop og roots 'n' hybrid. Der afholdes primært koncerter og aktiviteter i Kulturhuset Brønden. Der kan være 500 publikummer til koncerterne.
 Blandt andre har RAV lavet koncerter med Lamin, RH, Dejah Makar, AFSKUM og UNG-SKAB."
-          ctaTekst="Læs mere"
-          href="/rav"
-          variant="button"
-        />
+        ctaTekst="Læs mere"
+        href="/rav"
+        variant="button"
+      />
 
-        <article class="big-card_boennen">
-          <BigCard
-            img={import("../assets/forside/forsideBoennen.svg")}
-            imgTekst="cafe på kulturhuset brønden. "
-            titel="Bønnen"
-            tekst="Caféen Brønden & Bønnen danner ramme om gode smagsoplevelser, fællesskab og hverdagsmøder mellem Brøndbys borgere."
-            ctaTekst="Læs mere"
-            href="/boennen"
-            order="-1"
-            variant="button"
-          />
-
-          <div class="OverlayCard">
-            <SmallCard tekst="Brønden & Bønnen holder åbent på hverdage fra kl. 10 til 14." variant="pink" />
-          </div>
-        </article>
-
+      <article class="big-card_boennen">
         <BigCard
-          class="big-card-bibliotek"
-          img={import("../assets/forside/fpo.png")}
-          imgTekst="biblioteket på kulturhuset brønden. "
-          titel="Biblioteket"
-          tekst="På biblioteket Brønden kan du låne, aflevere og hente reserverede materialer i alle husets åbne timer – også når det ikke er bibliotekspersonale tilstede."
+          img={import("../assets/forside/forsideBoennen.svg")}
+          imgTekst="cafe på kulturhuset brønden. "
+          titel="Bønnen"
+          tekst="Caféen Brønden & Bønnen danner ramme om gode smagsoplevelser, fællesskab og hverdagsmøder mellem Brøndbys borgere."
           ctaTekst="Læs mere"
-          href="/biblioteket"
-          order="1"
+          href="/boennen"
+          order="-1"
           variant="button"
         />
-      </section>
-    </PageLayout>
-  </body>
-</html>
+
+        <div class="OverlayCard">
+          <SmallCard tekst="Brønden & Bønnen holder åbent på hverdage fra kl. 10 til 14." variant="pink" />
+        </div>
+      </article>
+
+      <BigCard
+        class="big-card-bibliotek"
+        img={import("../assets/forside/fpo.png")}
+        imgTekst="biblioteket på kulturhuset brønden. "
+        titel="Biblioteket"
+        tekst="På biblioteket Brønden kan du låne, aflevere og hente reserverede materialer i alle husets åbne timer – også når det ikke er bibliotekspersonale tilstede."
+        ctaTekst="Læs mere"
+        href="/biblioteket"
+        order="1"
+        variant="button"
+      />
+    </section>
+  </div>
+</PageLayout>
 
 <style>
-  section :global(.big-card img) {
-    margin-left: 2rem;
-    max-width: 700px;
+  .page-content {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    row-gap: 1rem;
   }
 
   h1 {
@@ -113,9 +106,8 @@ Blandt andre har RAV lavet koncerter med Lamin, RH, Dejah Makar, AFSKUM og UNG-S
     position: absolute;
     width: 250px;
     height: 150px;
-    top: 61%;
-    right: 12%;
-
+    top: 60%;
+    right: 5%;
     z-index: 10;
   }
 

@@ -15,151 +15,177 @@ import boennenHero from "../assets/boennen/boennenHero.svg";
 ---
 
 <PageLayout heading="Bønnen" heroImg={boennenHero} heroImgTekst="Brønden & Bønnen" navColor="light" ctaVariant="light" logoVariant="red" headerVariant="light" burgerVariant="red" footerLogo="red">
-  <BigCard
-    img={boennen1}
-    imgTekst="B&B café"
-    titel="Brønden & Bønnen"
-    tekst="Brønden & Bønnen er en café åbnet i samarbejde med Meyers Madhus, og er til for at danne ramme om gode smagsoplevelser, fællesskab og hverdagsmøder mellem Brøndbys borgere."
-    tekst2="Vi holder åbent mandag til lørdag kl. 10-14"
-  />
+  <div class="page-content">
+    <section class="section-1">
+      <BigCard
+        img={boennen1}
+        imgTekst="B&B café"
+        titel="Brønden & Bønnen"
+        tekst="Brønden & Bønnen er en café åbnet i samarbejde med Meyers Madhus, og er til for at danne ramme om gode smagsoplevelser, fællesskab og hverdagsmøder mellem Brøndbys borgere."
+        tekst2="Vi holder åbent mandag til lørdag kl. 10-14"
+      />
+    </section>
 
-  <!-- speciel sektion -->
-  <article class="menu">
-    <section class="menu-container">
-      <div class="logo-container">
-        <Logo variant="red" />
-      </div>
-      <div class="menu-content">
-        <div class="menu-title">
-          <h3>Ugens menu</h3>
-          <p class="p-small">Uge 19 + 20</p>
+    <!-- speciel sektion -->
+    <article class="menu">
+      <section class="menu-container">
+        <div class="logo-container">
+          <Logo variant="red" />
         </div>
-        <p class="p-bold">Ugens suppe</p>
-        <p>Kartoffelporresuppe med ramsløgpesto, croutoner og brød.</p>
-        <p class="p-bold">Ugens focaccia</p>
-        <p>Cremede hvide bønner med citron, stegt broccoli, parmesan og ruccola.</p>
-        <p class="p-bold">Ugens salat</p>
-        <p>Grønkål, perlebyg, æble, nødder, feta og vinagrette.</p>
-      </div>
+        <div class="menu-content">
+          <div class="menu-title">
+            <h3>Ugens menu</h3>
+            <p class="p-small">Uge 19 + 20</p>
+          </div>
+          <p class="p-bold">Ugens suppe</p>
+          <p>Kartoffelporresuppe med ramsløgpesto, croutoner og brød.</p>
+          <p class="p-bold">Ugens focaccia</p>
+          <p>Cremede hvide bønner med citron, stegt broccoli, parmesan og ruccola.</p>
+          <p class="p-bold">Ugens salat</p>
+          <p>Grønkål, perlebyg, æble, nødder, feta og vinagrette.</p>
+        </div>
+      </section>
+      <section class="menu-img">
+        <Image src={boennen3} alt="Iskaffe" />
+        <SmallCard tekst="Følg med på vores Instagram for at få opdateringer på nyheder og ugens menu." ctaTekst="Følg os" ctaVariant="light" href="https://www.instagram.com/broendenogboennen/?hl=da" target="_blank" />
+      </section>
+    </article>
+    <!-- speciel sektion slut -->
+    <section class="section-3">
+      <Image src={boennen5} alt="Fællesspisning" class="img" />
     </section>
-    <section class="menu-img">
-      <Image src={boennen3} alt="Iskaffe" />
-      <SmallCard tekst="Følg med på vores Instagram for at få opdateringer på nyheder og ugens menu." ctaTekst="Følg os" ctaVariant="light" href="https://www.instagram.com/broendenogboennen/?hl=da" target="_blank" />
+    <section class="section-4">
+      <BigCard
+        variant="button"
+        img={boennen4}
+        imgTekst="Det længste bord"
+        titel="Det længste bord"
+        tekst="Det Længste Bord skal gøre det mere normalt at spise sund, grøn og lækker mad i Brøndby Kommune. Hvis vi skal spise mere sundt og grønt, skal det også smage godt, gerne på en overraskende måde, og det skal helst også være billigt, sjovt og nemt i en travl hverdag – og så skal det mætte."
+        tekst2="Du kan læse mere om projektet Det Længste Bord på Brøndby Kommunes hjemmeside."
+        ctaTekst="Læs mere"
+        href="https://www.brondby.dk/borger/klima-og-miljo/klima-pa-dagsordenen/spis-gront-det-laengste-bord"
+        target="_blank"
+      />
     </section>
-  </article>
-  <!-- speciel sektion slut -->
+    <section class="section-5">
+      <BigCard
+        variant="button"
+        order="-1"
+        img={boennen6}
+        imgTekst="Kagesmagsprøver"
+        titel="Fællesspisning"
+        tekst="Tag din familie, din nabo eller din bedste ven under armen og kom til fællesspisning, når vi inviterer til fællesspisning i Kulturhuset Brønden."
+        tekst2="Brønden & Bønnen serverer en lækker grøn menu, og ofte vil der være et arrangement i Brønden før eller efter maden, som man kan deltage i, hvis man har lyst."
+        ctaTekst="Tilmeld dig"
+        href="https://oplev.brondby.dk/kalender#MarkType=broendby-faellesspisning"
+        target="_blank"
+      />
+    </section>
+    <section class="section-6">
+      <BigCard
+        variant="button-pink"
+        img={boennen7}
+        imgTekst="Madkursus"
+        titel="Brøndby Madskole"
+        tekst="Hos Det Længste Bord tilbydes der også madlavningskurser gennem Brøndby Madskole. Det kræver blot, at du har en interesse i at lære mere om, hvordan du laver lækker grøn mad, og hvordan du kan dele denne interesse med andre."
+        tekst2="Lyder det som noget for dig? Så læs mere om de forskellige kurser gennem linket nedenfor."
+        ctaTekst="Tilmeld dig"
+        href="https://brøndby.detlængstebord.dk/wp-content/uploads/2026/02/Broendby-Madskole-Foraar-2026.pdf"
+        target="_blank"
+      />
+    </section>
+  </div>
 
-  <Image src={boennen5} alt="Fællesspisning" class="img" />
-  <BigCard
-    variant="button"
-    img={boennen4}
-    imgTekst="Det længste bord"
-    titel="Det længste bord"
-    tekst="Det Længste Bord skal gøre det mere normalt at spise sund, grøn og lækker mad i Brøndby Kommune. Hvis vi skal spise mere sundt og grønt, skal det også smage godt, gerne på en overraskende måde, og det skal helst også være billigt, sjovt og nemt i en travl hverdag – og så skal det mætte."
-    tekst2="Du kan læse mere om projektet Det Længste Bord på Brøndby Kommunes hjemmeside."
-    ctaTekst="Læs mere"
-    href="https://www.brondby.dk/borger/klima-og-miljo/klima-pa-dagsordenen/spis-gront-det-laengste-bord"
-    target="_blank"
-  />
-  <BigCard
-    variant="button"
-    order="-1"
-    img={boennen6}
-    imgTekst="Kagesmagsprøver"
-    titel="Fællesspisning"
-    tekst="Tag din familie, din nabo eller din bedste ven under armen og kom til fællesspisning, når vi inviterer til fællesspisning i Kulturhuset Brønden."
-    tekst2="Brønden & Bønnen serverer en lækker grøn menu, og ofte vil der være et arrangement i Brønden før eller efter maden, som man kan deltage i, hvis man har lyst."
-    ctaTekst="Tilmeld dig"
-    href="https://oplev.brondby.dk/kalender#MarkType=broendby-faellesspisning"
-    target="_blank"
-  />
-  <BigCard
-    variant="button-pink"
-    img={boennen7}
-    imgTekst="Madkursus"
-    titel="Brøndby Madskole"
-    tekst="Hos Det Længste Bord tilbydes der også madlavningskurser gennem Brøndby Madskole. Det kræver blot, at du har en interesse i at lære mere om, hvordan du laver lækker grøn mad, og hvordan du kan dele denne interesse med andre."
-    tekst2="Lyder det som noget for dig? Så læs mere om de forskellige kurser gennem linket nedenfor."
-    ctaTekst="Tilmeld dig"
-    href="https://brøndby.detlængstebord.dk/wp-content/uploads/2026/02/Broendby-Madskole-Foraar-2026.pdf"
-    target="_blank"
-  />
-</PageLayout>
+  <style>
+    .img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      margin-top: 6rem;
+    }
 
-<style>
-  .img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    margin-top: 6rem;
-  }
-
-  /* layout af ugens menu */
-  .menu {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    margin: 1rem 3rem;
-    place-items: center;
-  }
-
-  .menu-content {
-    background-color: var(--card-color-pink);
-    padding: 3rem;
-    grid-area: 1/1;
-  }
-
-  .p-bold {
-    font-weight: var(--font-weight-medium);
-    margin-top: 2ch;
-  }
-
-  .p-small {
-    font-size: var(--p-small-size);
-  }
-
-  .menu-title {
-    text-align: center;
-  }
-
-  .logo-container {
-    max-width: 300px;
-    min-width: 300px;
-    position: relative;
-    transform: rotate(126deg);
-    bottom: -180px;
-    left: -20px;
-    place-self: left;
-    grid-area: 1/1;
-    z-index: -1;
-  }
-
-  .menu-container {
-    display: grid;
-  }
-
-  .menu-img :global(section) {
-    top: -100px;
-    right: -200px;
-  }
-
-  @media (width>=800px) {
-    .menu {
+    .page-content > :not(.section-1, .section-3, .section-6) {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 5rem;
+      grid-template-rows: auto 1fr auto;
+      max-width: 1200px;
+      margin: 0 auto;
+      row-gap: 1rem;
+    }
+    .section-1,
+    .section-4 {
+      padding-top: 3rem;
+    }
+    .section-6 {
+      margin-bottom: 4rem;
+    }
+
+    /* layout af ugens menu */
+    .menu {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      margin: 1rem 3rem;
+      place-items: center;
     }
 
     .menu-content {
-      margin-left: 4rem;
+      background-color: var(--card-color-pink);
+      padding: 3rem;
+      grid-area: 1/1;
     }
-  }
 
-  @media (width<800px) {
-    .menu {
-      gap: 12rem;
+    .p-bold {
+      font-weight: var(--font-weight-medium);
+      margin-top: 2ch;
     }
-  }
-</style>
+
+    .p-small {
+      font-size: var(--p-small-size);
+    }
+
+    .menu-title {
+      text-align: center;
+    }
+
+    .logo-container {
+      max-width: 300px;
+      min-width: 300px;
+      position: relative;
+      transform: rotate(126deg);
+      bottom: -180px;
+      left: -20px;
+      place-self: left;
+      grid-area: 1/1;
+      z-index: -1;
+    }
+
+    .menu-container {
+      display: grid;
+    }
+
+    .menu-img :global(section) {
+      top: -100px;
+      right: -200px;
+    }
+
+    @media (width>=800px) {
+      .menu {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 5rem;
+      }
+
+      .menu-content {
+        margin-left: 4rem;
+      }
+    }
+
+    @media (width<800px) {
+      .menu {
+        gap: 12rem;
+      }
+    }
+  </style>
+</PageLayout>
