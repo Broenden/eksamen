@@ -4,6 +4,14 @@ import ravHero from "../assets/rav/ravHero.png";
 import videorav from "/videorav.mp4";
 import BigCard from "../components/BigCard.astro";
 
+const gallery = Object.values(
+  import.meta.glob("../assets/rav/galleri/*.{jpg,jpeg,png,webp,svg}", {
+    eager: true,
+  }),
+);
+
+const images = gallery.map((img) => img.default.src);
+
 //@ts-nocheck
 ---
 
@@ -44,28 +52,65 @@ Hos os kan man komme, som man er, så længe du passer på og respekterer dine m
   </section>
 
   <!-- billedgalleri -->
-  <section class="billedgalleri"></section>
+  <section class="galleri-bg">
+    <h2>Hvilken stemning er der på Rav?</h2>
+    <p>
+      Til vores koncerter er der mørkt. God lyd. Man kan mærke beatet i kroppen. Der er stemningsfuldt lysdesign og røg fra røgmaskinen. Kolde drinks, energidrikke og dåseøl, leveret af et sødt personale. Der er det essentielle som skal til for at
+      have en lækker koncertoplevelse – Ikke så meget vrøvl
+    </p>
+    <p>Hos os kan man mærke musikken, komme helt tæt på artisterne, og man kan dyrke hiphoppen, popmelodierne, opdage nye talenter og være en del af et musikelskende fællesskab.</p>
 
-  <!-- 
-<PageLayout heading="RAV" heroVideo={videorav} heroImg={ravHero} heroImgTekst="RAV" navColor="light" ctaVariant="light" logoVariant="green" headerVariant="light" burgerVariant="green" footerLogo="green" />
- -->
-
-  <style>
-    .BigCard-1,
-    .BigCard-2 {
-      margin: 2rem;
-    }
-
-    .grå-sektion {
-      background-color: var(--card-color-grey);
-      height: 50em;
-      margin-top: 2rem;
-    }
-
-    .billedgalleri {
-      background-color: var(--card-color-grey);
-      height: 70em;
-      margin-top: 2rem;
-    }
-  </style>
+    <div class="galleri">
+      {images.map((src) => <img src={src} alt="" loading="lazy" />)}
+    </div>
+  </section>
 </PageLayout>
+
+<style>
+  .BigCard-1,
+  .BigCard-2 {
+    margin: 2rem;
+  }
+
+  .grå-sektion {
+    background-color: var(--card-color-grey);
+    height: 50em;
+    margin-top: 2rem;
+  }
+
+  .galleri-bg {
+    background-color: var(--card-color-grey);
+    padding-top: 2rem;
+  }
+
+  .galleri {
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .galleri img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--text-color-light);
+    size: var(--h2-size);
+  }
+
+  p {
+    margin-bottom: 1rem;
+    padding: 0 2rem;
+    color: var(--text-color-light);
+    size: var(--p-small-size);
+    font-family: var(--font-family-montserrat);
+  }
+</style>
