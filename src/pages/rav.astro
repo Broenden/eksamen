@@ -3,6 +3,7 @@ import PageLayout from "../Layouts/PageLayout.astro";
 import ravHero from "../assets/rav/ravHero.png";
 import videorav from "/videorav.mp4";
 import BigCard from "../components/BigCard.astro";
+import SmallCard from "../components/SmallCard.astro";
 
 const gallery = Object.values(
   import.meta.glob("../assets/rav/galleri/*.{jpg,jpeg,png,webp,svg}", {
@@ -31,8 +32,23 @@ Er du klar til at træde ind i mørket?"
   </section>
 
   <!-- frivilig -->
-  <section class="grå-sektion"></section>
+  <section class="grå-sektion">
+    <BigCard
+      img={import("../assets/rav/rav1.svg")}
+      imgTekst="RAV koncert"
+      titel="Bliv en del af teamet"
+      tekst="Bliv frivillig hos os i Brøndby Strand, og vær med til at vælge, hvilke artister vi skal lave koncerter med. Lær at afvikle vores koncerter, samt få viden om musik- og kulturlivet, kurser og nye skills. Måske vil du lave en serie af rapkoncerter med vennerne. Eller synes du, at det er hyggeligt at lave sociale aktiviteter, og tage del i det lokale kulturliv?"
+      tekst2="Det kræver ingen erfaring, men du skal være mellem 15-30 år. Som frivillig hos os kan man komme gratis ind til alle vores koncerter. Du kan sende os en DM på Instagram eller skriv til os på ravinfo@brondby.dk."
+      order="-1"
+    />
 
+    <SmallCard
+      tekst="Har du idéer til artister der skal komme forbi og lave en koncert i byen, eller er du interesseret i selv at lære, hvordan man arrangerer koncerter og kan lave sine egne projekter? Skriv til RAV, bliv frivillig og kom med på HOLDET."
+      ctaTekst="Skriv til os"
+      ctaVariant="light"
+      variant="grey"
+    />
+  </section>
   <!-- om rav -->
   <section class="BigCard-2">
     <BigCard
@@ -56,7 +72,7 @@ Hos os kan man komme, som man er, så længe du passer på og respekterer dine m
     <h2>Hvilken stemning er der på Rav?</h2>
     <p>
       Til vores koncerter er der mørkt. God lyd. Man kan mærke beatet i kroppen. Der er stemningsfuldt lysdesign og røg fra røgmaskinen. Kolde drinks, energidrikke og dåseøl, leveret af et sødt personale. Der er det essentielle som skal til for at
-      have en lækker koncertoplevelse – Ikke så meget vrøvl
+      have en lækker koncertoplevelse - Ikke så meget vrøvl
     </p>
     <p>Hos os kan man mærke musikken, komme helt tæt på artisterne, og man kan dyrke hiphoppen, popmelodierne, opdage nye talenter og være en del af et musikelskende fællesskab.</p>
 
