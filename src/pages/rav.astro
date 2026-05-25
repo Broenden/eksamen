@@ -3,6 +3,15 @@ import PageLayout from "../Layouts/PageLayout.astro";
 import ravHero from "../assets/rav/ravHero.png";
 import videorav from "/videorav.mp4";
 import BigCard from "../components/BigCard.astro";
+import SmallCard from "../components/SmallCard.astro";
+
+const gallery = Object.values(
+  import.meta.glob("../assets/rav/galleri/*.{jpg,jpeg,png,webp,svg}", {
+    eager: true,
+  }),
+);
+
+const images = gallery.map((img: any) => img.default.src);
 
 //@ts-nocheck
 ---
@@ -13,7 +22,7 @@ import BigCard from "../components/BigCard.astro";
     <h2>Kommende koncert</h2>
 
     <BigCard
-      img={import("../assets/rav/rav1.svg")}
+      img={import("../assets/rav/greenRetangle.svg")}
       imgTekst="RAV koncert"
       titel="Kommende koncert"
       tekst="Black Wonderworld er et sortklædt rave, hvor trance, techno psytrance vil drive din krop til grænsen. **** Sort dresscode. **** Rå energi. **** Bass beat der banker ind i din brystkasse skaber en vanvittig god fornemmelse.
@@ -23,8 +32,23 @@ Er du klar til at træde ind i mørket?"
   </section>
 
   <!-- frivilig -->
-  <section class="grå-sektion"></section>
+  <section class="grå-sektion">
+    <BigCard
+      img={import("../assets/rav/rav1.svg")}
+      imgTekst="RAV koncert"
+      titel="Bliv en del af teamet"
+      tekst="Bliv frivillig hos os i Brøndby Strand, og vær med til at vælge, hvilke artister vi skal lave koncerter med. Lær at afvikle vores koncerter, samt få viden om musik- og kulturlivet, kurser og nye skills. Måske vil du lave en serie af rapkoncerter med vennerne. Eller synes du, at det er hyggeligt at lave sociale aktiviteter, og tage del i det lokale kulturliv?"
+      tekst2="Det kræver ingen erfaring, men du skal være mellem 15-30 år. Som frivillig hos os kan man komme gratis ind til alle vores koncerter. Du kan sende os en DM på Instagram eller skriv til os på ravinfo@brondby.dk."
+      order="-1"
+    />
 
+    <SmallCard
+      tekst="Har du idéer til artister der skal komme forbi og lave en koncert i byen, eller er du interesseret i selv at lære, hvordan man arrangerer koncerter og kan lave sine egne projekter? Skriv til RAV, bliv frivillig og kom med på HOLDET."
+      ctaTekst="Skriv til os"
+      ctaVariant="light"
+      variant="grey"
+    />
+  </section>
   <!-- om rav -->
   <section class="BigCard-2">
     <BigCard
@@ -44,28 +68,64 @@ Hos os kan man komme, som man er, så længe du passer på og respekterer dine m
   </section>
 
   <!-- billedgalleri -->
-  <section class="billedgalleri"></section>
+  <section class="galleri-bg">
+    <h2>Hvilken stemning er der på Rav?</h2>
+    <p>
+      Til vores koncerter er der mørkt. God lyd. Man kan mærke beatet i kroppen. Der er stemningsfuldt lysdesign og røg fra røgmaskinen. Kolde drinks, energidrikke og dåseøl, leveret af et sødt personale. Der er det essentielle som skal til for at
+      have en lækker koncertoplevelse - Ikke så meget vrøvl
+    </p>
+    <p>Hos os kan man mærke musikken, komme helt tæt på artisterne, og man kan dyrke hiphoppen, popmelodierne, opdage nye talenter og være en del af et musikelskende fællesskab.</p>
 
-  <!-- 
-<PageLayout heading="RAV" heroVideo={videorav} heroImg={ravHero} heroImgTekst="RAV" navColor="light" ctaVariant="light" logoVariant="green" headerVariant="light" burgerVariant="green" footerLogo="green" />
- -->
-
-  <style>
-    .BigCard-1,
-    .BigCard-2 {
-      margin: 2rem;
-    }
-
-    .grå-sektion {
-      background-color: var(--card-color-grey);
-      height: 50em;
-      margin-top: 2rem;
-    }
-
-    .billedgalleri {
-      background-color: var(--card-color-grey);
-      height: 70em;
-      margin-top: 2rem;
-    }
-  </style>
+    <div class="galleri">
+      {images.map((src) => <img src={src} alt="" loading="lazy" />)}
+    </div>
+  </section>
 </PageLayout>
+
+<style>
+  .BigCard-2 {
+    margin: 2rem;
+  }
+
+  .grå-sektion {
+    background-color: var(--card-color-grey);
+    height: 50em;
+    margin-top: 2rem;
+  }
+
+  .galleri-bg {
+    background-color: var(--card-color-grey);
+    padding-top: 2rem;
+  }
+
+  .galleri {
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .galleri img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--text-color-light);
+    size: var(--h2-size);
+  }
+
+  p {
+    margin-bottom: 1rem;
+    padding: 0 2rem;
+    color: var(--text-color-light);
+    size: var(--p-small-size);
+    font-family: var(--font-family-montserrat);
+  }
+</style>
