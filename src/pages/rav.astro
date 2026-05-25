@@ -10,7 +10,7 @@ const gallery = Object.values(
   }),
 );
 
-const images = gallery.map((img) => img.default.src);
+const images = gallery.map((img: any) => img.default.src);
 
 //@ts-nocheck
 ---
