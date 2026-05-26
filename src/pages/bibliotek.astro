@@ -140,15 +140,18 @@ Søndag: Lukket"
 
   .OverlayCard-2 {
     position: absolute;
-    top: 282px;
-    right: 80px;
+    top: -10px;
+    right: 60px;
     z-index: 10;
   }
   .OverlayCard {
     position: absolute;
-    top: 450px;
+    top: 280px;
     right: 20px;
     z-index: 10;
+  }
+  .OverlayCard :global(p) {
+    max-width: 15ch;
   }
   @media (min-width: 900px) {
     .OverlayCard {
@@ -168,9 +171,8 @@ Søndag: Lukket"
   }
 
   .BooktokWrapper :global(img) {
-    width: 100%;
+    width: 90%;
     height: auto;
-    max-width: 100%;
     display: block;
   }
 
@@ -181,12 +183,12 @@ Søndag: Lukket"
   }
   .BooktokBooks {
     position: absolute;
-    top: 1900px;
-    left: 60px;
+    top: 1530px;
+    left: 48px;
     display: flex;
     gap: 1rem;
     z-index: 10;
-    grid: 1fr / repeat(auto-fit, minmax(50px, 1fr));
+    grid: 1fr / repeat(auto-fit, minmax(40px, 1fr));
   }
 
   .BooktokBooks img:hover {
@@ -202,6 +204,10 @@ Søndag: Lukket"
       top: 2150px;
       left: 280px;
       grid: 1fr / repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .BooktokWrapper {
+      position: relative;
+      width: 100%;
     }
   }
 </style>

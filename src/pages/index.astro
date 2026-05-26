@@ -1,5 +1,6 @@
 ---
 //@ts-nocheck
+import "../styles/custom.css";
 import { Image } from "astro:assets";
 import IndexCardContainer from "../components/IndexCardContainer.astro";
 import PageLayout from "../Layouts/PageLayout.astro";
@@ -64,6 +65,7 @@ const data = await response.json();
         href="/biblioteket"
         order="1"
         variant="button"
+        contentBg="content-yellow"
       />
     </section>
   </div>
@@ -89,18 +91,28 @@ const data = await response.json();
     text-align: end;
     display: block;
     margin-right: 3rem;
-    margin-bottom: 5rem;
   }
 
   .til-kalender:hover {
     text-decoration: underline;
   }
 
+  @media (min-width: 800px) {
+    .til-kalender {
+      margin-bottom: 5rem;
+    }
+  }
   .big-card_boennen {
     position: relative;
     z-index: 1;
   }
 
+  .big-card_boennen :global(.big-card .content) {
+    margin: 1rem 2rem;
+  }
+  .section-2 :global(.big-card .content) {
+    margin: 1rem 2rem;
+  }
   .OverlayCard {
     position: absolute;
     width: 250px;
@@ -108,11 +120,5 @@ const data = await response.json();
     top: 60%;
     right: 5%;
     z-index: 10;
-  }
-
-  @media (width<800px) {
-    .menu {
-      gap: 12rem;
-    }
   }
 </style>
