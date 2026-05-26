@@ -7,14 +7,20 @@ import BigCard from "../components/BigCard.astro";
 import SmallCard from "../components/SmallCard.astro";
 import { Image } from "astro:assets";
 import greenRetangle from "../assets/rav/greenRetangle.svg";
+import galleri1 from "../assets/rav/galleri/galleri1.png";
+import galleri2 from "../assets/rav/galleri/galleri2.png";
+import galleri3 from "../assets/rav/galleri/galleri3.png";
+import galleri4 from "../assets/rav/galleri/galleri4.png";
+import galleri5 from "../assets/rav/galleri/galleri5.png";
+import galleri6 from "../assets/rav/galleri/galleri6.png";
+import galleri7 from "../assets/rav/galleri/galleri7.png";
+import galleri8 from "../assets/rav/galleri/galleri8.png";
+import galleri9 from "../assets/rav/galleri/galleri9.png";
+import galleri10 from "../assets/rav/galleri/galleri10.png";
+import galleri11 from "../assets/rav/galleri/galleri11.png";
+import galleri12 from "../assets/rav/galleri/galleri12.png";
 
-const gallery = Object.values(
-  import.meta.glob("../assets/rav/galleri/*.{jpg,jpeg,png,webp,svg}", {
-    eager: true,
-  }),
-);
-
-const images = gallery.map((img: any) => img.default.src);
+const images = [galleri1, galleri2, galleri3, galleri4, galleri5, galleri6, galleri7, galleri8, galleri9, galleri10, galleri11, galleri12].map((img) => img.src);
 
 const response = await fetch("https://bjirvinbqadjnyjgfaze.supabase.co/rest/v1/kalender?select=*&id=eq.41", {
   headers: {
@@ -29,70 +35,86 @@ const koncert = data[0];
 
 <PageLayout heading="RAV" heroVideo={videorav} heroImg={ravHero} heroImgTekst="RAV" navColor="light" ctaVariant="light" logoVariant="green" headerVariant="light" burgerVariant="green" footerLogo="green">
   <!-- kommende koncert -->
-  <section>
-    <div class="BigCard-1 grid_1-1">
-      <h2>Kommende koncert</h2>
-      <img src={koncert.img} alt={koncert.name} />
+  <div class="page-content">
+    <section>
+      <div class="BigCard-1 grid_1-1">
+        <h2>Kommende koncert</h2>
+        <img src={koncert.img} alt={koncert.name} />
 
-      <div>
-        <p>{koncert.description}</p>
+        <div>
+          <p>{koncert.description}</p>
+        </div>
       </div>
-    </div>
-    <Image class="green-rectangle" src={greenRetangle} alt="green rectangle" />
-  </section>
+      <Image class="green-rectangle" src={greenRetangle} alt="green rectangle" />
+    </section>
 
-  <!-- frivilig -->
-  <section class="grå-sektion">
-    <BigCard
-      img={import("../assets/rav/rav1.svg")}
-      imgTekst="RAV koncert"
-      titel="Bliv en del af teamet"
-      tekst="Bliv frivillig hos os i Brøndby Strand, og vær med til at vælge, hvilke artister vi skal lave koncerter med. Lær at afvikle vores koncerter, samt få viden om musik- og kulturlivet, kurser og nye skills. Måske vil du lave en serie af rapkoncerter med vennerne. Eller synes du, at det er hyggeligt at lave sociale aktiviteter, og tage del i det lokale kulturliv?"
-      tekst2="Det kræver ingen erfaring, men du skal være mellem 15-30 år. Som frivillig hos os kan man komme gratis ind til alle vores koncerter. Du kan sende os en DM på Instagram eller skriv til os på ravinfo@brondby.dk."
-      order="-1"
-    />
+    <!-- frivilig -->
+    <section class="grå-sektion">
+      <BigCard
+        img={import("../assets/rav/rav1.svg")}
+        imgTekst="RAV koncert"
+        titel="Bliv en del af teamet"
+        tekst="Bliv frivillig hos os i Brøndby Strand, og vær med til at vælge, hvilke artister vi skal lave koncerter med. Lær at afvikle vores koncerter, samt få viden om musik- og kulturlivet, kurser og nye skills. Måske vil du lave en serie af rapkoncerter med vennerne. Eller synes du, at det er hyggeligt at lave sociale aktiviteter, og tage del i det lokale kulturliv?"
+        tekst2="Det kræver ingen erfaring, men du skal være mellem 15-30 år. Som frivillig hos os kan man komme gratis ind til alle vores koncerter. Du kan sende os en DM på Instagram eller skriv til os på ravinfo@brondby.dk."
+        order="-1"
+      />
 
-    <SmallCard
-      tekst="Har du idéer til artister der skal komme forbi og lave en koncert i byen, eller er du interesseret i selv at lære, hvordan man arrangerer koncerter og kan lave sine egne projekter? Skriv til RAV, bliv frivillig og kom med på HOLDET."
-      ctaTekst="Skriv til os"
-      ctaVariant="light"
-      variant="grey"
-    />
-  </section>
-  <!-- om rav -->
-  <section class="BigCard-2">
-    <BigCard
-      img={import("../assets/rav/rav2.svg")}
-      imgTekst="RAV koncert"
-      titel="Om Rav"
-      tekst="Rav er et koncertsted, som ligge i Brøndby Stand. Vi er til for musikken, byen og kulturen. Koncertstilen er samtidig musik med fokus på byens kulturelle identitet, nye artister og strømninger, fællesskab. diversitet og interessante nicher. Hos os kan du opdage et hvirvlende program, som tager dig til at fra den danske rapscene, ghettotech fest i Detroit, portugisisk folkemusik, norsk techno rave, stjernebestøvet fællessang, ømme øjeblikke på Vestegnen og feministisk kamp i Tyrkiet."
-    />
-    <BigCard
-      img={import("../assets/rav/rav3.svg")}
-      imgTekst="RAV koncert"
-      tekst="I vores koncertsal i Brønden kan der være op til 500 publikummer. Der er en billig bar, som er drevet af en lokal forening, hvor man blandt ander kan få sodavand, kaffe, drinks, øl og vand. Vi har et venligt, professionelt personale, der er altid klar til at hjælpe dig. RAV er støttet af Statens Kunstfond og Brøndby Kommune.
+      <div class="overlayCard">
+        <SmallCard
+          tekst="Har du idéer til artister der skal komme forbi og lave en koncert i byen, eller er du interesseret i selv at lære, hvordan man arrangerer koncerter og kan lave sine egne projekter? Skriv til RAV, bliv frivillig og kom med på HOLDET."
+          ctaTekst="Skriv til os"
+          ctaVariant="light"
+          variant="grey"
+        />
+      </div>
+    </section>
+    <!-- om rav -->
+    <section class="BigCard-2">
+      <BigCard
+        img={import("../assets/rav/rav2.svg")}
+        imgTekst="RAV koncert"
+        titel="Om Rav"
+        tekst="Rav er et koncertsted, som ligge i Brøndby Stand. Vi er til for musikken, byen og kulturen. Koncertstilen er samtidig musik med fokus på byens kulturelle identitet, nye artister og strømninger, fællesskab. diversitet og interessante nicher. Hos os kan du opdage et hvirvlende program, som tager dig til at fra den danske rapscene, ghettotech fest i Detroit, portugisisk folkemusik, norsk techno rave, stjernebestøvet fællessang, ømme øjeblikke på Vestegnen og feministisk kamp i Tyrkiet."
+      />
+      <BigCard
+        img={import("../assets/rav/rav3.svg")}
+        imgTekst="RAV koncert"
+        tekst="I vores koncertsal i Brønden kan der være op til 500 publikummer. Der er en billig bar, som er drevet af en lokal forening, hvor man blandt ander kan få sodavand, kaffe, drinks, øl og vand. Vi har et venligt, professionelt personale, der er altid klar til at hjælpe dig. RAV er støttet af Statens Kunstfond og Brøndby Kommune.
 
 Hos os kan man komme, som man er, så længe du passer på og respekterer dine medpublikkummer."
-      order="-1"
-    />
-  </section>
+        order="-1"
+      />
+    </section>
 
-  <!-- billedgalleri -->
-  <section class="galleri-bg">
-    <h2>Hvilken stemning er der på Rav?</h2>
-    <p>
-      Til vores koncerter er der mørkt. God lyd. Man kan mærke beatet i kroppen. Der er stemningsfuldt lysdesign og røg fra røgmaskinen. Kolde drinks, energidrikke og dåseøl, leveret af et sødt personale. Der er det essentielle som skal til for at
-      have en lækker koncertoplevelse - Ikke så meget vrøvl
-    </p>
-    <p>Hos os kan man mærke musikken, komme helt tæt på artisterne, og man kan dyrke hiphoppen, popmelodierne, opdage nye talenter og være en del af et musikelskende fællesskab.</p>
+    <!-- billedgalleri -->
+    <section class="galleri-bg">
+      <h2>Hvilken stemning er der på Rav?</h2>
+      <p>
+        Til vores koncerter er der mørkt. God lyd. Man kan mærke beatet i kroppen. Der er stemningsfuldt lysdesign og røg fra røgmaskinen. Kolde drinks, energidrikke og dåseøl, leveret af et sødt personale. Der er det essentielle som skal til for at
+        have en lækker koncertoplevelse - Ikke så meget vrøvl
+      </p>
+      <p>Hos os kan man mærke musikken, komme helt tæt på artisterne, og man kan dyrke hiphoppen, popmelodierne, opdage nye talenter og være en del af et musikelskende fællesskab.</p>
 
-    <div class="galleri">
-      {images.map((src) => <img src={src} alt="" loading="lazy" />)}
-    </div>
-  </section>
+      <div class="galleri">
+        {images.map((src, i) => <img class={`img-${i + 1}`} src={src} alt={`RAV galleri ${i + 1}`} loading="lazy" />)}
+      </div>
+    </section>
+  </div>
 </PageLayout>
 
 <style>
+  .page-content > :not(.grå-sektion, .galleri-bg) {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    row-gap: 1rem;
+  }
+  /* bigcard 1 og 2  */
+  .BigCard-1 {
+    position: relative;
+    z-index: 1;
+  }
   @media (min-width: 800px) {
     .grid_1-1 {
       display: grid;
@@ -115,12 +137,6 @@ Hos os kan man komme, som man er, så længe du passer på og respekterer dine m
       display: block;
       margin: 0 auto;
     }
-  }
-  .BigCard-1 {
-    position: relative;
-    z-index: 1;
-  }
-  @media (min-width: 800px) {
     .green-rectangle {
       position: absolute;
       top: 750px;
@@ -131,47 +147,108 @@ Hos os kan man komme, som man er, så længe du passer på og respekterer dine m
     }
   }
 
-  .BigCard-2 {
-    margin: 2rem;
-  }
+  /* grå sektion */
 
   .grå-sektion {
     background-color: var(--card-color-grey);
-    height: 50em;
     margin-top: 2rem;
+    margin-bottom: 4rem;
+    padding: 4rem;
+    position: relative;
   }
+  .grå-sektion :global(p, h2) {
+    color: var(--text-color-light);
+  }
+
+  .overlayCard {
+    position: absolute;
+    top: 282px;
+    right: 80px;
+    z-index: 10;
+  }
+  /* galleri */
 
   .galleri-bg {
     background-color: var(--card-color-grey);
-    padding-top: 2rem;
+    padding: 2rem, 4rem, 4rem, 4rem;
   }
 
   .galleri {
-    margin: 0 auto;
-    padding: 2rem;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 120px;
+    gap: 12px;
+    padding: 3rem 8rem;
   }
 
   .galleri img {
     width: 100%;
     height: 100%;
-    display: block;
     object-fit: cover;
-    border-radius: 2px;
+    display: block;
+  }
+  .img-1 {
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 3;
+  }
+  .img-2 {
+    grid-column: 4 / span 4;
+    grid-row: 1 / span 4;
+  }
+  .img-3 {
+    grid-column: 8 / span 3;
+    grid-row: 1 / span 2;
+  }
+  .img-4 {
+    grid-column: 11 / span 2;
+    grid-row: 1 / span 3;
+  }
+
+  .img-5 {
+    grid-column: 1 / span 3;
+    grid-row: 4 / span 2;
+  }
+  .img-6 {
+    grid-column: 4 / span 4;
+    grid-row: 5 / span 3;
+  }
+  .img-7 {
+    grid-column: 8 / span 3;
+    grid-row: 3 / span 3;
+  }
+  .img-8 {
+    grid-column: 11 / span 2;
+    grid-row: 4 / span 2;
+  }
+
+  .img-9 {
+    grid-column: 1 / span 3;
+    grid-row: 6 / span 4;
+  }
+  .img-10 {
+    grid-column: 4 / span 4;
+    grid-row: 8 / span 2;
+  }
+  .img-11 {
+    grid-column: 8 / span 3;
+    grid-row: 6 / span 4;
+  }
+  .img-12 {
+    grid-column: 11 / span 2;
+    grid-row: 6 / span 4;
   }
 
   .galleri-bg h2 {
     text-align: center;
     margin-bottom: 1rem;
+    padding-top: 2rem;
     color: var(--text-color-light);
     size: var(--h2-size);
   }
 
   .galleri-bg p {
-    margin-bottom: 1rem;
-    padding: 0 2rem;
+    padding: 0 8rem;
+    max-width: 75ch;
     color: var(--text-color-light);
     size: var(--p-small-size);
     font-family: var(--font-family-montserrat);
