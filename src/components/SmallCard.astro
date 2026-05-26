@@ -16,6 +16,7 @@ const { tekst, ctaTekst, href, ctaVariant, variant = "brown", target } = Astro.p
     max-width: 20vw;
     padding: 1rem;
     position: relative;
+    box-shadow: var(--shadow-medium);
   }
 
   p {
@@ -47,7 +48,7 @@ const { tekst, ctaTekst, href, ctaVariant, variant = "brown", target } = Astro.p
 
   /* grå */
   .small-card--grey {
-    color: var(--card-color-grey);
+    background-color: var(--card-color-grey);
   }
 
   .small-card--grey p {
