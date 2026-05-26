@@ -37,7 +37,7 @@ const koncert = data[0];
   <!-- kommende koncert -->
   <div class="page-content">
     <section>
-      <div class="BigCard-1 grid_1-1">
+      <div class="big-card-1 grid_1-1">
         <h2>Kommende koncert</h2>
         <img src={koncert.img} alt={koncert.name} />
 
@@ -59,7 +59,7 @@ const koncert = data[0];
         order="-1"
       />
 
-      <div class="overlayCard">
+      <div class="overlay-card">
         <SmallCard
           tekst="Har du idéer til artister der skal komme forbi og lave en koncert i byen, eller er du interesseret i selv at lære, hvordan man arrangerer koncerter og kan lave sine egne projekter? Skriv til RAV, bliv frivillig og kom med på HOLDET."
           ctaTekst="Skriv til os"
@@ -69,7 +69,7 @@ const koncert = data[0];
       </div>
     </section>
     <!-- om rav -->
-    <section class="BigCard-2">
+    <section class="big-card-2">
       <BigCard
         img={import("../assets/rav/rav2.svg")}
         imgTekst="RAV koncert"
@@ -111,9 +111,32 @@ Hos os kan man komme, som man er, så længe du passer på og respekterer dine m
     row-gap: 1rem;
   }
   /* bigcard 1 og 2  */
-  .BigCard-1 {
+  .big-card-1 {
     position: relative;
     z-index: 1;
+  }
+
+  .green-rectangle {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  .big-card-1 h2 {
+    color: var(--text-color-dark);
+    padding: 2rem 2rem 1rem 2rem;
+  }
+  .big-card-1 p {
+    padding: 2rem 5rem 0rem 5rem;
+    max-width: 35ch;
+  }
+  .big-card-1 img {
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding: 1rem;
   }
   @media (min-width: 800px) {
     .grid_1-1 {
@@ -122,28 +145,19 @@ Hos os kan man komme, som man er, så længe du passer på og respekterer dine m
       gap: 4rem;
       margin: 4rem;
     }
-    .BigCard-1 h2 {
+    .big-card-1 h2 {
       grid-column: span 2;
+      padding: 0;
     }
-    .BigCard-1 p {
+    .big-card-1 p {
       margin-top: 4rem;
-      padding: 1rem;
-      max-width: 35ch;
-    }
-
-    .BigCard-1 img {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
     }
     .green-rectangle {
-      position: absolute;
       top: 750px;
-      left: 0;
       width: 50%;
-      height: 100%;
-      z-index: -1;
+    }
+    .big-card-1 img {
+      width: 100%;
     }
   }
 
@@ -151,20 +165,45 @@ Hos os kan man komme, som man er, så længe du passer på og respekterer dine m
 
   .grå-sektion {
     background-color: var(--card-color-grey);
-    margin-top: 2rem;
-    margin-bottom: 4rem;
-    padding: 4rem;
     position: relative;
+    padding: 1rem;
   }
+
   .grå-sektion :global(p, h2) {
     color: var(--text-color-light);
   }
-
-  .overlayCard {
+  .grå-sektion :global(img) {
+    width: auto;
+    height: 400px;
+    display: block;
+  }
+  .grå-sektion :global(p) {
+    margin-bottom: 1rem;
+    max-width: 45ch;
+  }
+  .overlay-card {
     position: absolute;
-    top: 282px;
-    right: 80px;
+    top: 200px;
+    right: 90px;
     z-index: 10;
+    max-width: 25ch;
+  }
+
+  @media (min-width: 800px) {
+    .grå-sektion {
+      margin-top: 2rem;
+      margin-bottom: 4rem;
+      padding: 4rem;
+    }
+
+    .overlay-card {
+      top: 282px;
+      right: 80px;
+    }
+    .grå-sektion :global(img) {
+      width: 100%;
+      height: auto;
+    }
   }
   /* galleri */
 
@@ -173,69 +212,11 @@ Hos os kan man komme, som man er, så længe du passer på og respekterer dine m
     padding: 2rem, 4rem, 4rem, 4rem;
   }
 
-  .galleri {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: 120px;
-    gap: 12px;
-    padding: 3rem 8rem;
-  }
-
   .galleri img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-  }
-  .img-1 {
-    grid-column: 1 / span 3;
-    grid-row: 1 / span 3;
-  }
-  .img-2 {
-    grid-column: 4 / span 4;
-    grid-row: 1 / span 4;
-  }
-  .img-3 {
-    grid-column: 8 / span 3;
-    grid-row: 1 / span 2;
-  }
-  .img-4 {
-    grid-column: 11 / span 2;
-    grid-row: 1 / span 3;
-  }
-
-  .img-5 {
-    grid-column: 1 / span 3;
-    grid-row: 4 / span 2;
-  }
-  .img-6 {
-    grid-column: 4 / span 4;
-    grid-row: 5 / span 3;
-  }
-  .img-7 {
-    grid-column: 8 / span 3;
-    grid-row: 3 / span 3;
-  }
-  .img-8 {
-    grid-column: 11 / span 2;
-    grid-row: 4 / span 2;
-  }
-
-  .img-9 {
-    grid-column: 1 / span 3;
-    grid-row: 6 / span 4;
-  }
-  .img-10 {
-    grid-column: 4 / span 4;
-    grid-row: 8 / span 2;
-  }
-  .img-11 {
-    grid-column: 8 / span 3;
-    grid-row: 6 / span 4;
-  }
-  .img-12 {
-    grid-column: 11 / span 2;
-    grid-row: 6 / span 4;
   }
 
   .galleri-bg h2 {
@@ -245,12 +226,80 @@ Hos os kan man komme, som man er, så længe du passer på og respekterer dine m
     color: var(--text-color-light);
     size: var(--h2-size);
   }
+  .galleri {
+    display: grid;
+    gap: 20px;
+  }
 
   .galleri-bg p {
-    padding: 0 8rem;
-    max-width: 75ch;
+    padding: 0 2rem;
+    padding-bottom: 1rem;
+    max-width: 45ch;
     color: var(--text-color-light);
     size: var(--p-small-size);
     font-family: var(--font-family-montserrat);
+  }
+  @media (min-width: 800px) {
+    .galleri-bg p {
+      padding: 0 8rem;
+      max-width: 75ch;
+    }
+    .galleri {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 120px;
+      gap: 12px;
+      padding: 3rem 8rem;
+    }
+    .img-1 {
+      grid-column: 1 / span 3;
+      grid-row: 1 / span 3;
+    }
+    .img-2 {
+      grid-column: 4 / span 4;
+      grid-row: 1 / span 4;
+    }
+    .img-3 {
+      grid-column: 8 / span 3;
+      grid-row: 1 / span 2;
+    }
+    .img-4 {
+      grid-column: 11 / span 2;
+      grid-row: 1 / span 3;
+    }
+
+    .img-5 {
+      grid-column: 1 / span 3;
+      grid-row: 4 / span 2;
+    }
+    .img-6 {
+      grid-column: 4 / span 4;
+      grid-row: 5 / span 3;
+    }
+    .img-7 {
+      grid-column: 8 / span 3;
+      grid-row: 3 / span 3;
+    }
+    .img-8 {
+      grid-column: 11 / span 2;
+      grid-row: 4 / span 2;
+    }
+
+    .img-9 {
+      grid-column: 1 / span 3;
+      grid-row: 6 / span 4;
+    }
+    .img-10 {
+      grid-column: 4 / span 4;
+      grid-row: 8 / span 2;
+    }
+    .img-11 {
+      grid-column: 8 / span 3;
+      grid-row: 6 / span 4;
+    }
+    .img-12 {
+      grid-column: 11 / span 2;
+      grid-row: 6 / span 4;
+    }
   }
 </style>

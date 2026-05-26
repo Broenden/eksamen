@@ -13,10 +13,19 @@ const { tekst, ctaTekst, href, ctaVariant, variant = "brown", target } = Astro.p
 
 <style>
   .small-card {
-    max-width: 20vw;
     padding: 1rem;
     position: relative;
     box-shadow: var(--shadow-medium);
+  }
+
+  @media (max-width: 900px) {
+    .small-card :global(.btn) {
+      font-size: var(--p-small-size);
+    }
+
+    .small-card :global(.btn::after) {
+      font-size: var(--p-size);
+    }
   }
 
   p {

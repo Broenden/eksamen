@@ -2,12 +2,12 @@
 import { Image } from "astro:assets";
 import CtaDefault from "./CtaDefault.astro";
 // const { placeholder, buttonText, text, title } = Astro.props;
-const { img, imgTekst, tekst, tekst2, titel, ctaTekst, href, order, variant = "no-button", target } = Astro.props;
+const { img, imgTekst, tekst, tekst2, titel, ctaTekst, href, order, contentBg = "", variant = "no-button", target, class: className } = Astro.props;
 ---
 
-<section class={`big-card big-card--${variant} `}>
+<section class={`big-card big-card--${variant} ${className}`}>
   <Image src={img} alt={imgTekst} />
-  <div class="content">
+  <div class={`content ${contentBg}`}>
     <h2>{titel}</h2>
     <p>{tekst}</p>
     <p>{tekst2}</p>
@@ -27,10 +27,10 @@ const { img, imgTekst, tekst, tekst2, titel, ctaTekst, href, order, variant = "n
     gap: 1rem;
     margin: 1rem 4rem;
   }
-
-  /* .big-card {
-    margin: 9rem 0;
-  } */
+  .content-yellow {
+    background-color: var(--card-color-yellow);
+    padding: 2rem;
+  }
 
   .cta {
     display: none;
