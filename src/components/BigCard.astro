@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import CtaDefault from "./CtaDefault.astro";
 // const { placeholder, buttonText, text, title } = Astro.props;
-const { img, imgTekst, tekst, tekst2, titel, ctaTekst, href, order, contentBg = "", variant = "no-button", target, class: className } = Astro.props;
+const { img, imgTekst, tekst, tekst2, titel, bemandingText, åbningText, åbningTitle, bemandingTitle, ctaTekst, href, order, contentBg = "", variant = "no-button", target, class: className } = Astro.props;
 ---
 
 <section class={`big-card big-card--${variant} ${className}`}>
@@ -10,7 +10,24 @@ const { img, imgTekst, tekst, tekst2, titel, ctaTekst, href, order, contentBg = 
   <div class={`content ${contentBg}`}>
     <h2>{titel}</h2>
     <p>{tekst}</p>
-    <p>{tekst2}</p>
+    {
+      åbningTitle ? (
+        <div class="opening-hours">
+          <div>
+            <h3>{åbningTitle}</h3>
+            <p>{åbningText}</p>
+          </div>
+
+          <div>
+            <h3>{bemandingTitle}</h3>
+            <p>{bemandingText}</p>
+          </div>
+        </div>
+      ) : (
+        <p>{tekst2}</p>
+      )
+    }
+
     <div class="cta">
       <CtaDefault href={href} tekst={ctaTekst} target={target} />
     </div>
@@ -19,13 +36,13 @@ const { img, imgTekst, tekst, tekst2, titel, ctaTekst, href, order, contentBg = 
 
 <style define:vars={{ order }}>
   .content {
-    order: var(--order);
+    order: -1;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-    margin: 1rem 4rem;
+    margin: 1rem 0rem;
   }
   .content-yellow {
     background-color: var(--card-color-yellow);
@@ -48,6 +65,21 @@ const { img, imgTekst, tekst, tekst2, titel, ctaTekst, href, order, contentBg = 
     padding: 2rem 0;
     margin-bottom: 0;
   }
+  .opening-hours {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .opening-hours p {
+    white-space: pre-line;
+  }
+
+  @media (min-width: 800px) {
+    .opening-hours {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 
   @media (min-width: 800px) {
     .big-card {
@@ -55,6 +87,9 @@ const { img, imgTekst, tekst, tekst2, titel, ctaTekst, href, order, contentBg = 
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
       margin-bottom: 1rem;
+    }
+    .content {
+      order: var(--order);
     }
   }
 </style>

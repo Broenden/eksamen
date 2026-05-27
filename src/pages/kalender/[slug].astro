@@ -25,7 +25,7 @@ const { post } = Astro.props;
 ---
 
 <PageLayout heading={post.name}>
-  <article class="grid_1-1 single-view">
+  <article class={`grid_1-1 single-view card ${post.type2}`}>
     <h2>{post.name}</h2>
     <div class="event-info">
       <p>{post.shortDescription}</p>
@@ -36,7 +36,7 @@ const { post } = Astro.props;
         <h4>Pris: {post.price}</h4>
         <h4>Sted: {post.place}</h4>
         <div class="cta">
-          <CtaDefault href="/" tekst="Tilmeld" />
+          <CtaDefault href="/" tekst="Tilmeld" variant={post.type2 === "rav" ? "light" : "darkblue"} />
         </div>
       </div>
     </div>
@@ -57,6 +57,25 @@ const { post } = Astro.props;
     margin: 0 auto;
     display: grid;
     row-gap: 1rem;
+  }
+  .card.rav {
+    background-color: var(--card-color-grey);
+    color: var(--text-color-light);
+  }
+  .card.rav h4,
+  .card.rav p,
+  .card.rav span,
+  .card.rav h2,
+  .card.rav .cta {
+    color: var(--text-color-light);
+  }
+
+  .card.bibliotek {
+    background-color: var(--card-color-yellow);
+  }
+
+  .card.bønnen {
+    background-color: var(--card-color-pink);
   }
   img {
     display: block;

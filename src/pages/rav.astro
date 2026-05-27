@@ -138,12 +138,21 @@ Hos os kan man komme, som man er, så længe du passer på og respekterer dine m
     margin: 0 auto;
     padding: 1rem;
   }
+  .big-card-2 :global(p) {
+    margin: 0 2rem;
+  }
+  .big-card-2 > :first-child :global(.content) {
+    order: -1;
+  }
   @media (min-width: 800px) {
     .grid_1-1 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 4rem;
       margin: 4rem;
+    }
+    .big-card-2 :global(p) {
+      margin: 0rem;
     }
     .big-card-1 h2 {
       grid-column: span 2;
@@ -158,6 +167,11 @@ Hos os kan man komme, som man er, så længe du passer på og respekterer dine m
     }
     .big-card-1 img {
       width: 100%;
+    }
+    @media (min-width: 800px) {
+      .big-card-2 > :first-child :global(.content) {
+        order: 1;
+      }
     }
   }
 
@@ -203,6 +217,13 @@ Hos os kan man komme, som man er, så længe du passer på og respekterer dine m
     .grå-sektion :global(img) {
       width: 100%;
       height: auto;
+    }
+    .overlay-card {
+      position: absolute;
+      top: 250px;
+      right: 90px;
+      z-index: 10;
+      max-width: 50ch;
     }
   }
   /* galleri */

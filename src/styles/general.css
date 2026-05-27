@@ -12,7 +12,6 @@ body {
   background-color: var(--bg-color);
 }
 img {
-  display: block;
   max-width: 100%;
   height: auto;
 }

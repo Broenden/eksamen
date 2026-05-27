@@ -156,6 +156,7 @@ const { kalender } = Astro.props;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0 1rem;
   }
   article {
     display: grid;
@@ -164,6 +165,9 @@ const { kalender } = Astro.props;
     margin: 0 auto;
     display: grid;
     row-gap: 1rem;
+  }
+  article h2 {
+    margin: 0 1rem;
   }
   /* knapper */
   button {
@@ -241,18 +245,18 @@ const { kalender } = Astro.props;
     border: 1px solid var(--cta-color-dark);
     padding: 0.5rem 1rem;
     margin-left: auto;
-    margin-bottom: 1rem;
     background-color: var(--bg-color);
     border-radius: 15px;
+    margin-right: 2rem;
   }
 
   nav.active .filter-buttons {
     display: block;
     position: absolute;
     flex-direction: column;
-    top: 240px;
-    right: 70px;
-    width: 120px;
+    top: 220px;
+    right: 5px;
+    width: 100px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     z-index: 1;
   }
@@ -279,6 +283,18 @@ const { kalender } = Astro.props;
       gap: 1rem;
       grid-template-rows: repeat(6, auto);
       justify-content: center;
+    }
+    nav.active .filter-buttons {
+      top: 240px;
+      right: 70px;
+      width: 120px;
+    }
+    button.dropDown {
+      margin-bottom: 1rem;
+      margin-right: 0rem;
+    }
+    article h2 {
+      margin: 0rem;
     }
   }
 </style>
