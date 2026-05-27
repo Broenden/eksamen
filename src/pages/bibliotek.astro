@@ -49,16 +49,14 @@ const booktokData = await booktokResponse.json();
         imgTekst="Biblioteket bog"
         titel="Åbningstider"
         tekst="Åbningstider og bemandingstider for biblioteket kan variere, men vi har som udgangspunkt følgende tider:"
-        tekst2="Åbent
-Man-Torsdag: 8-20
+        åbningTitle="Åbent"
+        åbningText="Man-Torsdag: 8-20
 Fredag: 10-18
-Lørdag: 10-17
-Søndag: Lukket"
-        tekst3="Bemanding
-Man-Torsdag: 12-17
+Lørdag: 10-17"
+        bemandingTitle="Bemanding"
+        bemandingText="Man-Torsdag: 12-17
 Fredag: 12-16
-Lørdag: 10-14
-Søndag: Lukket"
+Lørdag: 10-14"
         ctaTekst="Se tider"
         href="/"
         variant="button"
@@ -153,9 +151,17 @@ Søndag: Lukket"
   .OverlayCard :global(p) {
     max-width: 15ch;
   }
+  .BigCard-2 :global(.opening-hours) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .BigCard-3 {
+    margin-top: 2rem;
+  }
   @media (min-width: 900px) {
     .OverlayCard {
-      top: 450px;
+      top: 350px;
       right: -20px;
     }
     .OverlayCard-2 {
@@ -201,13 +207,16 @@ Søndag: Lukket"
       width: 150px;
     }
     .BooktokBooks {
-      top: 2150px;
+      top: 2030px;
       left: 280px;
       grid: 1fr / repeat(auto-fit, minmax(150px, 1fr));
     }
     .BooktokWrapper {
       position: relative;
       width: 100%;
+    }
+    .BigCard-5 {
+      margin-left: 6rem;
     }
   }
 </style>

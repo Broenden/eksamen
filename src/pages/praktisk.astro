@@ -122,6 +122,7 @@ import Logo from "../components/Logo.astro";
   .husregler {
     display: grid;
     justify-self: center;
+    padding: 0 2rem;
   }
   .husregler-list {
     display: grid;
@@ -152,6 +153,7 @@ import Logo from "../components/Logo.astro";
     top: 300px;
   }
 
+  /* lukkedage sektion */
   .lukkedage ul {
     list-style-type: none;
   }
@@ -182,22 +184,25 @@ import Logo from "../components/Logo.astro";
 
   /* parkering - sektion  */
   .parkering-content {
-    max-width: 65ch;
+    max-width: 30ch;
+    padding: 0 2rem;
   }
+  .parkering h2 {
+    padding: 0.2rem 2rem;
+  }
+
   .parkering-img {
     display: block;
   }
 
   .parkering-img :global(section) {
-    top: -100px;
-    right: -300px;
+    top: -60px;
+    right: -20px;
     z-index: 10;
-  }
-  .parkering-img :global(p) {
-    max-width: 25ch;
+    max-width: 20ch;
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 800px) {
     .grid_1-1 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -207,6 +212,21 @@ import Logo from "../components/Logo.astro";
     .grid_1-1 h2 {
       grid-column: span 2;
       justify-self: center;
+    }
+    .husregler {
+      padding: 0rem;
+    }
+    .parkering-content {
+      max-width: 60ch;
+      padding: 0 0rem;
+    }
+    .parkering h2 {
+      padding: 0rem 0rem;
+    }
+    .parkering-img :global(section) {
+      top: -100px;
+      right: -140px;
+      max-width: 45ch;
     }
   }
 </style>

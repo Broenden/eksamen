@@ -10,7 +10,7 @@ const { class: className, variant = "dark", ctaVariant, burgerVariant } = Astro.
     <li><a href="/boennen">B&B</a></li>
     <li><a href="/bibliotek">Bibliotek</a></li>
     <li><a href="/praktisk">Praktisk</a></li>
-    <li><a href="om">Om os</a></li>
+    <li><a href="/om">Om os</a></li>
     <li class="cta-desktop"><CtaDefault href="/kalender" tekst="Kalender" variant={ctaVariant} /></li>
     <li class="cta-burger"><a href="/kalender">Kalender</a></li>
   </ul>
@@ -137,7 +137,7 @@ const { class: className, variant = "dark", ctaVariant, burgerVariant } = Astro.
       top: 120px;
       left: 0;
       width: 100%;
-      z-index: 1;
+      z-index: 100;
     }
 
     nav.active .menu li {
