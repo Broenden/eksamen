@@ -3,12 +3,20 @@ import "../styles/custom.css";
 import Logo from "../components/Logo.astro";
 import Navigation from "../components/Navigation.astro";
 import { Image } from "astro:assets";
-const { class: className, variant, img, imgTekst, video, navColor, ctaVariant, logoVariant, burgerVariant } = Astro.props;
+const { class: className, variant, img, imgTekst, videoWebm, video, navColor, ctaVariant, logoVariant, burgerVariant } = Astro.props;
 ---
 
 <header class={`header header--${variant} ${className}`}>
   <section class="hero">
-    {video ? <video class="hero-video" src={video} autoplay muted loop playsinline /> : img ? <Image src={img} alt={imgTekst} /> : null}
+    {
+      video ? (
+        <video class="hero-video" autoplay muted loop playsinline preload="none">
+          <source src={videoWebm} type="video/webm" />
+        </video>
+      ) : img ? (
+        <Image src={img} alt={imgTekst} />
+      ) : null
+    }
   </section>
   <section class="nav">
     <div class="logo-header">
