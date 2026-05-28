@@ -19,6 +19,7 @@ import galleri9 from "../assets/rav/galleri/galleri9.png";
 import galleri10 from "../assets/rav/galleri/galleri10.png";
 import galleri11 from "../assets/rav/galleri/galleri11.png";
 import galleri12 from "../assets/rav/galleri/galleri12.png";
+import videoravWebm from "../assets/videorav.webm";
 
 const images = [galleri1, galleri2, galleri3, galleri4, galleri5, galleri6, galleri7, galleri8, galleri9, galleri10, galleri11, galleri12].map((img) => img.src);
 
@@ -33,7 +34,7 @@ const data = await response.json();
 const koncert = data[0];
 ---
 
-<PageLayout heading="RAV" heroVideo={videorav} heroImg={ravHero} heroImgTekst="RAV" navColor="light" ctaVariant="light" logoVariant="green" headerVariant="light" burgerVariant="green" footerLogo="green">
+<PageLayout heading="RAV" video={true} videoWebm={videoravWebm} heroImgTekst="RAV" navColor="light" ctaVariant="light" logoVariant="green" headerVariant="light" burgerVariant="green" footerLogo="green">
   <!-- kommende koncert -->
   <div class="page-content">
     <section>
